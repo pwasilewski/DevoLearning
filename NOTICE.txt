@@ -1,0 +1,13 @@
+DevoLearning — C# / .NET Core Educational Exercises
+Copyright © 2025 by the author. All rights reserved.
+
+This material is provided for personal and educational purposes only.
+You may view, modify, and use this content locally for learning,
+training, or demonstration.
+
+Redistribution, publication, or commercial use of this material
+(in part or in whole) without explicit permission from the author
+is strictly prohibited.
+
+Referenced libraries and frameworks (such as .NET, MudBlazor, or EF Core)
+remain under their respective licenses.
