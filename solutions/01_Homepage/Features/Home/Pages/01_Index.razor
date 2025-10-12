@@ -1,0 +1,16 @@
+﻿@page "/"
+
+<div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-2 my-3">
+	<div class="d-flex align-items-center gap-2">
+		<MudText Class="m-0" Typo="Typo.h1" Color="Color.Primary">Hello World</MudText>
+	</div>
+</div>
+
+<MudGrid>
+	<MudItem xs="12" xl="8">
+		<MudText>
+			Welcome to your new Blazor application: DevoLearning!<br/>
+			We're glad to have you here on @DateTime.Today.ToString("dd/MM/yyyy").
+		</MudText>
+	</MudItem>
+</MudGrid>
