@@ -84,3 +84,6 @@ In short: personal and educational use only.
 
 > “The best way to understand architecture is to build it piece by piece — not just read about it.”  
 > — *DevoLearning*
+
+<img width="787" height="1059" alt="image" src="https://github.com/user-attachments/assets/46c5bd9c-7064-47d5-85a0-f9b868870603" />
+
