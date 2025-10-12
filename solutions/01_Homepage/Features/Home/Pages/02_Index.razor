@@ -1,20 +1,20 @@
 ﻿@page "/"
 
 <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-2 my-3">
-	<div class="d-flex align-items-center gap-2">
-		<MudText Class="m-0" Typo="Typo.h1" Color="Color.Primary">Hello World</MudText>
-	</div>
+    <div class="d-flex align-items-center gap-2">
+        <MudText Class="m-0" Typo="Typo.h1" Color="Color.Primary">Hello World</MudText>
+    </div>
 </div>
 
 <MudGrid>
-	<MudItem xs="12" xl="8">
-		<MudText>
-			@{
-				var today = DateTime.Today;
-				var formattedDate = today.ToString("dd/MM/yyyy");
-			}
-			Welcome to your new Blazor application: DevoLearning!<br/>
-			We're glad to have you here on @formattedDate.
-		</MudText>
-	</MudItem>
+    <MudItem xs="12" xl="8">
+        <MudText>
+            @{
+                var today = DateTime.Today;
+                var formattedDate = today.ToString("dd/MM/yyyy");
+            }
+            Welcome to your new Blazor application: DevoLearning!<br/>
+            We're glad to have you here on @formattedDate.
+        </MudText>
+    </MudItem>
 </MudGrid>
