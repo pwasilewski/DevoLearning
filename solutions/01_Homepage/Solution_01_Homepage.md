@@ -1,8 +1,5 @@
 # Solution 01 – Homepage Layout
 
-## 🏷️ Title
-Implementing the Homepage Layout Using the Design System Template
-
 ## 🧩 Overview
 In this solution, we apply the company’s Page Layout UX pattern to the Homepage. The page contains a **title** and a **description** formatted using Razor syntax.  
 This exercise introduces basic Blazor component structure, markup binding, and usage of `DateTime.Today` for dynamic content.
@@ -42,6 +39,7 @@ https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc97
 https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/03_Index.razor#L3-L20
 
 https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/04_Index.razor#L3-L25
+
 ---
 
 ## 📚 Further Reading
