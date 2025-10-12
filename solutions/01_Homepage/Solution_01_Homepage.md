@@ -1,48 +1,29 @@
-# Solution 01 – Homepage Layout
+# Solution — Exercise 01 — Homepage Layout & Date Formatting
 
 ## 🧩 Overview
-In this solution, we apply the company’s Page Layout UX pattern to the Homepage. The page contains a **title** and a **description** formatted using Razor syntax.  
-This exercise introduces basic Blazor component structure, markup binding, and usage of `DateTime.Today` for dynamic content.
+You’ve implemented the project’s first layout following the company’s UX guidelines.  
+The homepage now includes a **title** and a **description** that dynamically shows today’s date using Razor syntax.  
+This establishes the foundation for consistent markup, layout, and dynamic rendering in upcoming exercises.  
 
 ---
 
-## ⚙️ Implementation Steps
+## 🧱 Implementation
 
-1. **Locate the Homepage**
-   - Open the `Index.razor` file in your Blazor project (usually under `/Pages`).
+### Step 1 – Locate the Homepage
+Open **`Nihdi.DevoLearning.Presentation/Features/Home/Pages/Index.razor`**.
 
-2. **Apply the Page Layout Pattern**
-   - Replace the existing content with the Page intro structure from the Design System.
-   - The **title** should be “Hello World”.
-   - The **description** should display the current date using `@DateTime.Today.ToString("dd/MM/yyyy")`.
+### Step 2 – Apply the Page Layout Pattern
+Replace the existing content with your page intro structure as defined in the Design System.  
+Add a static title and a dynamic date using Razor’s inline C# expressions.  
 
----
-
-## 🖼️ Expected Result
-<img width="1362" height="305" alt="image" src="https://github.com/user-attachments/assets/050c37f7-5989-4d66-a595-202a015361d6" />
-
-https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/01_Index.razor#L3-L16
-
----
-
-## 🧠 Key Takeaways
-- Reinforces the concept of **reusing UX patterns** via shared components.
-- Introduces **date formatting** and **Razor data binding**.
-- Sets the stage for future exercises with localization and reusability.
+https://github.com/pwasilewski/DevoLearning/blob/838fd9ca7a5c51076a68221b3f604404cf53a657/solutions/01_Homepage/Features/Home/Pages/01_Index.razor#L1-L16
 
 ---
 
 ## 🔁 Alternative Solution Ideas
 
-https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/02_Index.razor#L3-L20
+https://github.com/pwasilewski/DevoLearning/blob/838fd9ca7a5c51076a68221b3f604404cf53a657/solutions/01_Homepage/Features/Home/Pages/02_Index.razor#L1-L20
 
-https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/03_Index.razor#L3-L20
+https://github.com/pwasilewski/DevoLearning/blob/838fd9ca7a5c51076a68221b3f604404cf53a657/solutions/01_Homepage/Features/Home/Pages/03_Index.razor#L1-L20
 
-https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/04_Index.razor#L3-L25
-
----
-
-## 📚 Further Reading
-- [ASP.NET Core Razor Syntax Reference (Microsoft Docs)](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-9.0)
-- [Razor Syntax in Blazor (LearnBlazor.com)](https://www.learnblazor.com/razor-syntax)
-- [MudBlazor Components Overview](https://mudblazor.com/components/)
+https://github.com/pwasilewski/DevoLearning/blob/838fd9ca7a5c51076a68221b3f604404cf53a657/solutions/01_Homepage/Features/Home/Pages/04_Index.razor#L1-L25
