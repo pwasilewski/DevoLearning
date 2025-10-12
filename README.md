@@ -62,11 +62,10 @@ Each exercise in `/docs/` has a corresponding working project in `/solutions/` s
 ---
 
 ## 🚀 Getting Started
-
-1. Clone or download the repository (ZIP version works fine too).  
-2. Open the solution from `solutions/00_StartingSolution/CaseManagement.sln`.  
-3. Follow the first guide in `/docs/ASPNET/Exercise_01_Homepage.md`.  
-4. Progress through exercises step-by-step — each introduces a new concept or pattern.  
+ 
+1. Download the solution from `solutions/00_StartingSolution/DevoLearning.zip`.  
+2. Follow the first guide in `/docs/ASPNET/Exercise_01_Homepage.md`.  
+3. Progress through exercises step-by-step — each introduces a new concept or pattern.  
 
 ---
 
