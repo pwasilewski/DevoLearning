@@ -8,7 +8,7 @@ You’ve refactored the homepage to use a reusable **`PageIntro`** component, in
 ## 🧱 Implementation
 
 ### Step 1 – Create the **`PageIntro`** component
-In **`Nihdi.DevoLearning.Presentation/Shared/Components/PageIntro.razor`**, create a new Razor component implementing the Design System’s page intro layout.
+In **`Nihdi.DevoLearning.Presentation/Components/PageIntro.razor`**, create a new Razor component implementing the Design System’s page intro layout.
 
 https://github.com/pwasilewski/DevoLearning/blob/bc8f37cb5d0a514b2546284ab5b4bcc4f83ce0e5/solutions/02_PageIntro/Components/PageIntro.razor#L1-L19
 
