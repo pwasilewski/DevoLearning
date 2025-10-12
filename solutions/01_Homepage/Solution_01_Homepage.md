@@ -22,7 +22,9 @@ This exercise introduces basic Blazor component structure, markup binding, and u
 ---
 
 ## 🖼️ Expected Result
-_Add a screenshot or visual reference here once ready (e.g., Homepage rendered with “Hello World” and today’s date)._
+<img width="1362" height="305" alt="image" src="https://github.com/user-attachments/assets/050c37f7-5989-4d66-a595-202a015361d6" />
+
+https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/01_Index.razor#L3-L16
 
 ---
 
@@ -35,7 +37,11 @@ _Add a screenshot or visual reference here once ready (e.g., Homepage rendered w
 
 ## 🔁 Alternative Solution Ideas
 
+https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/02_Index.razor#L3-L20
 
+https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/03_Index.razor#L3-L20
+
+https://github.com/pwasilewski/DevoLearning/blob/d46622a2eb59635a2ce21c42186dc9772fb3ff73/solutions/01_Homepage/Features/Home/Pages/04_Index.razor#L3-L25
 ---
 
 ## 📚 Further Reading
