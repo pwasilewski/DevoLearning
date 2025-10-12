@@ -81,4 +81,4 @@ When complete, your homepage should resemble the following:
 ---
 
 ## 🧠 Next Steps
-**Next:** [Exercise 02 – Create a Reusable PageLayout Component](./Exercise_02_PageLayout.md)
+**Next:** [Exercise 02 – Create a Reusable PageLayout Component](./Exercise_02_PageIntro.md)
