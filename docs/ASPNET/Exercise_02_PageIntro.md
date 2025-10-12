@@ -76,7 +76,7 @@ Open **`_Imports.razor`** and include:
 @using Nihdi.DevoLearning.Presentation.Components
 ```
 
-💡 Imports defined here become available to all Razor files in your project — no need to repeat them in every page.
+💡 Imports defined here become available to all Razor files in your project — no need to repeat them in every page. (You can remove the using from **`Index.razor`**)
 
 ---
 
@@ -91,7 +91,9 @@ Add an extension method to handle consistent date formatting (e.g., `ToShortDisp
 ---
 
 #### Step 2 – Display the Formatted Date
-In the homepage (**`Index.razor`**), use your new extension method inside the **`PageIntro`** description section to display the current date in the unified format.
+In the homepage (**`Index.razor`**), use your new extension method inside the **`PageIntro`** description section to display the current date in the unified format.   
+
+💡 Put the using in the **`_Import.razor`** file.
 
 ---
 
@@ -105,5 +107,5 @@ In the homepage (**`Index.razor`**), use your new extension method inside the **
 ---
 
 ## 🧠 Next Steps  
-In the next exercise, you’ll extend this foundation to handle dynamic data and more complex layouts — reinforcing how reusable components and extension methods work together to keep your Blazor app clean and scalable. 
+In the next exercise, you’ll extend this foundation to handle dynamic data and more complex layouts — reinforcing how reusable components and extension methods work together to keep your Blazor app clean and scalable.   
 👉 Continue with [Exercise 03 – ](./Exercise_03.md)
