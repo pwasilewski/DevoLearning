@@ -61,7 +61,7 @@ Open your **`Index.razor`** and replace your existing layout with the `PageIntro
 Open **`_Imports.razor`** and add
 
 ```csharp
-@using YourApp.Components
+@using Nihdi.DevoLearning.Presentation.Components
 ```
 
 💡 **Hint**: **`_Imports.razor`** allows you to make components or namespaces available globally so you don’t have to import them manually in every Razor file.
