@@ -40,7 +40,6 @@ Use the Design System’s **Page intro** pattern to structure the homepage with:
 - A title showing “Hello World”
 - A description that displays today’s date
 
-You can use MudBlazor components such as `MudText` or `MudContainer` to align with the overall style.
 
 ---
 
@@ -63,8 +62,8 @@ Confirm that:
 ## 🧩 Result
 When complete, your homepage should resemble the following:
 
-📸 *[Insert Screenshot Here]*  
-_(You can paste your UI image here later.)_
+<img width="1362" height="305" alt="image" src="https://github.com/user-attachments/assets/e2ef0fff-734a-4897-9787-f5389450b126" />
+
 
 ---
 
