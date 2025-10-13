@@ -1,0 +1,8 @@
+﻿@page "/"
+
+@using Nihdi.DevoLearning.Presentation.Resources.Features.Home
+
+<PageIntro Title="@HomeResource.Title">
+    <MudText>@string.Format(HomeResource.Description, DateTime.Today.ToShortDisplayFormat())</MudText>
+    <MudText>@((MarkupString)HomeResource.Encouragement)</MudText>
+</PageIntro>
