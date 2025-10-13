@@ -65,7 +65,9 @@ Open your `Index.razor` page and update the title and description to use the loc
 
 🖼️ Example layout (expected result):
 
-*(Include a screenshot showing localized Homepage title, date, and encouragement line in French and Dutch versions)*
+<img width="1351" height="300" alt="image" src="https://github.com/user-attachments/assets/a70c38ba-2bb5-4485-a317-140f7a5ee504" />
+<img width="1361" height="300" alt="image" src="https://github.com/user-attachments/assets/1407195b-edb4-4490-a500-8171d080ace0" />
+
 
 ---
 
