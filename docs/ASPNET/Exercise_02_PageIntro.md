@@ -107,5 +107,5 @@ In the homepage (**`Index.razor`**), use your new extension method inside the **
 ---
 
 ## 🧠 Next Steps  
-In the next exercise, you’ll extend this foundation to handle dynamic data and more complex layouts — reinforcing how reusable components and extension methods work together to keep your Blazor app clean and scalable.   
-👉 Continue with [Exercise 03 – ](./Exercise_03.md)
+In the next exercise, you’ll Localize the homepage by moving strings into feature-scoped `.resx` files.  
+👉 Continue with [Exercise 03 – Localization Basics](./Exercise_03_Localization_Basics.md)
