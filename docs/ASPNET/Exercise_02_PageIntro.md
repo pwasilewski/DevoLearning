@@ -1,4 +1,4 @@
-# 🧩 Exercise 02 — Reusable PageIntro Component & Shared Date Logic
+# Exercise 02 — Reusable PageIntro Component & Shared Date Logic
 
 ## 🎯 Goal
 Learn to build and apply reusable structures — both in **UI** and **logic**.  
