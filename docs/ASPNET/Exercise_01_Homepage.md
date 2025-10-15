@@ -31,7 +31,7 @@ Open the file:
 ```
 Nihdi.DevoLearning.Presentation/Features/Pages/Home/Index.razor
 ```
-This is where you’ll apply the base **Page intro** structure from your Design System.
+This is where you’ll apply the base **Page intro** structure from your [Design System](https://webappsa.riziv-inami.fgov.be/styleguide-mudblazor8-wfe/pattern/page-intro).
 
 ---
 
