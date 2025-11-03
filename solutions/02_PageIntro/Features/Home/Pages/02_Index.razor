@@ -1,8 +1,12 @@
 ﻿@page "/"
 
 <PageIntro Title="Hello World">
-    <MudText>
-        Welcome to your new Blazor application: DevoLearning!<br />
-        We're glad to have you here on @DateTime.Today.ToString("dd/MM/yyyy").
-    </MudText>
+    <MudGrid>
+        <MudItem xs="12" xl="8">
+            <MudText>
+                Welcome to your new Blazor application: DevoLearning!<br />
+                We're glad to have you here on @DateTime.Today.ToString("dd/MM/yyyy").
+            </MudText>
+        </MudItem>
+    </MudGrid>
 </PageIntro>
