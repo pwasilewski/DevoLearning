@@ -86,5 +86,5 @@ Confirm that all texts on the Homepage are correctly translated.
 - Use **ResXManager** to synchronize and manage all translations easily.
 
 ## 🧠 Next Steps  
-In the next exercise, you’ll .  
-👉 Continue with 
+In the next exercise, you’ll build your first paginated list of people using a data grid.  
+👉 Continue with [Exercise 04 - PersonOverview](./Exercise_04_PersonOverview.md)

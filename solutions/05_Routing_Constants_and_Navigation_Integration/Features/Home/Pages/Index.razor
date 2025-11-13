@@ -1,0 +1,9 @@
+﻿@attribute [Route(Routing.Home.Index)]
+
+@using Nihdi.DevoLearning.Presentation.Resources.Features.Home
+@using Nihdi.DevoLearning.Presentation.Shared
+
+<PageIntro Title="@HomeResource.Title">
+    <MudText>@string.Format(HomeResource.Description, DateTime.Today.ToShortDisplayFormat())</MudText>
+    <MudText>@((MarkupString)HomeResource.Encouragement)</MudText>
+</PageIntro>
