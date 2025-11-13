@@ -1,0 +1,128 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using Nihdi.DevoLearning.Presentation.Shared
+<header class="header">
+    <div class="header-top-bar">
+        <div class="header-container">
+            <MudLink Class="header-brand header-mobile-hidden" Href="#" Target="_blank">@Global.NihdiName</MudLink>
+
+            <CultureSelector />
+        </div>
+    </div>
+</header>
+
+<MudOverlay Class="header-overlay" @bind-Visible="_expandedPrimary" AutoClose OnClick="CloseHeaderPrimary" />
+<header class="header">
+    <!-- navigation -->
+    <nav class="header-navbar">
+        <div class="header-navbar-block-gradient">
+            <div class="header-navbar-block header-mobile-visible">
+                <div class="header-container">
+                    <!-- brand -->
+                    <MudLink Class="header-brand" Href="#" Target="_blank">@Global.NihdiName</MudLink>
+                    <div class="header-right">
+                        <!-- notifications -->
+                        @*
+                            <MudLink OnClick="@(() => ToggleDrawer())">
+                                <MudBadge Content="3" Class="header-notifications header-mobile-visible">
+                                    <MudIcon Icon="icon-bell" />
+                                </MudBadge>
+                            </MudLink>
+                        *@
+                        <!-- toggle -->
+                        <MudButton Variant="Variant.Filled" Class="header-navbar-toggle" StartIcon="@(_expandedPrimary ? "icon-xmark" : "icon-bars")" OnClick="ExpandHeaderPrimary">@(_expandedPrimary? Global.Close: Global.Menu)</MudButton>
+                    </div>
+                </div>
+            </div>
+
+            <!-- collapsible navigation -->
+            <MudCollapse Class="header-navbar-block header-navbar-collapse" Expanded="_expandedPrimary">
+                <div class="header-container">
+                    <!-- nav -->
+                    <ul class="header-nav">
+                        <li class="active">
+                            <MudLink Href="@Routing.Home.Index">
+                                <MudIcon Icon="icon-home" />
+                                @Navigation.Home
+                            </MudLink>
+                        </li>
+                        <li>
+                            <MudLink Href="@Routing.Persons.Overview">@Navigation.Persons</MudLink>
+                        </li>
+                        <li>
+                            <MudLink Href="#">Link</MudLink>
+                        </li>
+                    </ul>
+
+                    <div class="header-right">
+                        <ul class="header-nav header-mobile-hidden">
+                            <!-- notifications -->
+                            <li>
+                                @*
+                                    <MudLink OnClick="@(() => ToggleDrawer())">
+                                        <MudBadge Content="3" Class="header-notifications">
+                                            <MudIcon Icon="icon-bell" />
+                                        </MudBadge>
+                                    </MudLink>
+                                *@
+                            </li>
+                        </ul>
+
+                        <!-- user info -->
+                        <div class="header-nav">
+                            <div class="header-mobile-hidden">
+                                <MudMenu ListClass="dropdown-menu header-dropdown" AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                                    <ActivatorContent>
+                                        <MudButton Class="header-dropdown-button">
+                                            <span>@_fullName</span>
+                                            <MudDivider Vertical Class="border-dark mx-2" />
+                                            <strong>User</strong>
+                                        </MudButton>
+                                    </ActivatorContent>
+                                    <ChildContent>
+                                        <MudMenuItem Icon="icon-user">Profile</MudMenuItem>
+                                        <MudMenuItem Icon="icon-right-from-bracket">Logout</MudMenuItem>
+                                    </ChildContent>
+                                </MudMenu>
+                            </div>
+                            <section class="header-user-mobile header-mobile-visible">
+                                <div class="header-user-mobile-id">
+                                    <span>@_fullName</span>
+                                    <strong>User</strong>
+                                </div>
+                                <div class="header-user-mobile-actions">
+                                    <MudButton Variant="Variant.Outlined">Logout</MudButton>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </MudCollapse>
+        </div>
+    </nav>
+</header>
+
+@code {
+    private bool _expandedPrimary = false;
+    private string _fullName = string.Empty;
+
+    [Inject]
+    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var identity = authState.User.Identity;
+
+        _fullName = identity.GetFullName();
+    }
+
+    private void CloseHeaderPrimary()
+    {
+        _expandedPrimary = false;
+    }
+
+    private void ExpandHeaderPrimary()
+    {
+        _expandedPrimary = !_expandedPrimary;
+    }
+}
