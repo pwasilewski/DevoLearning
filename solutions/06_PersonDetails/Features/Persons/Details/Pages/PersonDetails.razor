@@ -1,0 +1,89 @@
+﻿@using Nihdi.DevoLearning.Presentation.Resources.Features.Persons
+@using Nihdi.DevoLearning.Presentation.Shared
+
+@attribute [Route(Routing.Persons.PersonDetails)]
+
+<PageIntro Title="@(ViewModel.Person == null ? string.Empty : $"{ViewModel.Person.LastName} {ViewModel.Person.FirstName}")" BacklinkLabel="@PersonsResource.BackToOverview" BacklinkHref="@Routing.Persons.Overview">
+
+    @if (ViewModel.IsLoading)
+    {
+        <MudOverlay Visible DarkBackground>
+            <MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
+        </MudOverlay>
+    }
+    else if (ViewModel.Person == null)
+    {
+        // Nothing to show
+    }
+    else
+    {
+        <MudGrid>
+            <MudItem xs="12" xl="8">
+                <MudPaper Class="p-4">
+                    <MudText Typo="Typo.h5">@PersonsResource.PersonDetails_PersonalInfo</MudText>
+
+                    <MudList T="string" ReadOnly Class="list-description list-description-stacked">
+                        <MudListItem>
+                            <MudText Class="list-term">@PersonsResource.Gender</MudText>
+                            <MudText Class="list-definition">@ViewModel.Person.Gender</MudText>
+                        </MudListItem>
+                        <MudDivider Class="border-lighter" />
+                        <MudListItem>
+                            <MudText Class="list-term">@PersonsResource.CivilState</MudText>
+                            <MudText Class="list-definition">@ViewModel.Person.CivilState</MudText>
+                        </MudListItem>
+                        <MudDivider Class="border-lighter" />
+                        <MudListItem>
+                            <MudText Class="list-term">@PersonsResource.BirthDate</MudText>
+                            <MudText Class="list-definition">@ViewModel.Person.BirthDate.ToShortDisplayFormat()</MudText>
+                        </MudListItem>
+                        <MudDivider Class="border-lighter" />
+                        <MudListItem>
+                            <MudText Class="list-term">@PersonsResource.DeceasedDate</MudText>
+                            <MudText Class="list-definition">
+                                @(ViewModel.Person.DeceasedDate.HasValue? ViewModel.Person.DeceasedDate.Value.ToShortDisplayFormat() : "-")
+                            </MudText>
+                        </MudListItem>
+                    </MudList>
+                </MudPaper>
+            </MudItem>
+
+            <MudItem xs="12" xl="8" >
+                <MudPaper Class="p-4">
+                    <MudText Typo="Typo.h5">@PersonsResource.PersonDetails_ContactInfo</MudText>
+
+                    <MudList T="string" ReadOnly Class="list-description list-description-stacked">
+                        <MudListItem>
+                            <MudText Class="list-term">@PersonsResource.Email</MudText>
+                            <MudText Class="list-definition">@ViewModel.Person.Email</MudText>
+                        </MudListItem>
+                        <MudDivider Class="border-lighter" />
+                        <MudListItem>
+                            <MudText Class="list-term">@PersonsResource.Mobile</MudText>
+                            <MudText Class="list-definition">@ViewModel.Person.Mobile</MudText>
+                        </MudListItem>
+                    </MudList>
+                </MudPaper> 
+            </MudItem>
+
+            <MudItem xs="12" xl="8">
+                <MudPaper Class="p-4">
+                    <MudText Typo="Typo.h5">@PersonsResource.PersonDetails_AdminInfo</MudText>
+
+                    <MudList T="string" ReadOnly Class="list-description list-description-stacked">
+                        <MudListItem>
+                            <MudText Class="list-term">@PersonsResource.Created</MudText>
+                            <MudText Class="list-definition">@($"{ViewModel.Person.CreatedOn} {PersonsResource.By} {ViewModel.Person.CreatedBy}")</MudText>
+                        </MudListItem>
+                        <MudDivider Class="border-lighter" />
+                        <MudListItem>
+                            <MudText Class="list-term">@PersonsResource.Modified</MudText>
+                            <MudText Class="list-definition">@($"{ViewModel.Person.ModifiedOn} {PersonsResource.By} {ViewModel.Person.ModifiedBy}")</MudText>
+                        </MudListItem>
+                    </MudList>
+                </MudPaper>
+            </MudItem>
+        </MudGrid>
+    }
+
+</PageIntro>
