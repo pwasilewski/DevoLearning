@@ -49,7 +49,7 @@ Open `Features/Home/Pages/Index.razor` and replace your existing layout with the
 It should receive a title (`"Hello World"`) and render a description showing today’s date.
 
 🖼️ **Example layout (expected result):**  
-_(Insert screenshot placeholder here)_
+<img width="1362" height="305" alt="image" src="https://github.com/user-attachments/assets/e2ef0fff-734a-4897-9787-f5389450b126" />
 
 💡 Don’t forget to add the component’s namespace import before using it.
 
