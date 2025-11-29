@@ -217,4 +217,4 @@ Use `RowClick` on `MudDataGrid` to navigate to the details page.
 
 ## 🧠 Next Steps
 In the next exercise, you will extend the Person Details page by adding translation support for Gender and Civil State using dedicated lookup services.  
-👉 Continue with [Exercise 07 — Lookup Services](./Exercise_07_Lookup_Services).
+👉 Continue with [Exercise 07 — Lookup Services](./Exercise_07_Lookup_Services.md).
