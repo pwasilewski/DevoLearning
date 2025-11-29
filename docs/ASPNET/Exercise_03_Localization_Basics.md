@@ -1,90 +1,86 @@
 # Exercise 03 — Localization Basics
 
 ## 🎯 Goal
-Introduce multilingual support by localizing the Homepage content in **French** and **Dutch**.  
-You’ll create feature-based `.resx` files for the **Home** epic and replace hardcoded text with localized resources.
-
----
+In this exercise, you will introduce localization into your Blazor app and create the structure needed to support multiple languages. You will set up resource files, organize them per feature, and use localized strings in components. This establishes a scalable approach to multilingual UI development that future features will build upon.
 
 ## 🧠 Context
-In many architectures, translations are stored globally or in a central “Resources” component.  
-However, this approach often becomes unmanageable as the project grows — global keys pile up, and related strings spread across multiple files.
-
-Instead, this exercise follows a **feature-based localization** approach:  
-each epic (like *Home*, *Person*, or *Case*) owns its own `.resx` files.  
-This makes maintenance easier, keeps translations relevant, and avoids name collisions between features.
-
-You’ll focus on translating the Homepage `PageIntro` texts — the **title**, a **localized date message**, and an **encouragement line** using `MarkupString`.
-
----
+Until now, UI text has been hardcoded, and while some architectures solve this with a global Resources folder, that approach becomes messy as soon as many features start sharing translations. Keys mix together, unrelated strings collide, and maintaining clarity becomes difficult.
+A feature-based localization model avoids this problem by letting each feature own its own `.resx` files. This isolates translations, keeps them relevant, reduces naming conflicts, and scales naturally as the application grows.
+In this exercise, you establish that structure by localizing the Homepage PageIntro: its title, a localized date string, and an encouragement line displayed using MarkupString.
 
 ## 📚 Learn / Review Before Starting
-- [Globalization and localization in ASP.NET Core – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-9.0)  
-- [ASP.NET Core Blazor localization – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization?view=aspnetcore-9.0)  
-- [ResXManager – Marketplace Extension](https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager) – a Visual Studio extension that helps you manage and synchronize `.resx` files efficiently across multiple languages.
+- [Globalization and Localization in ASP.NET Core – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-9.0)
+- [Blazor Localization – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization?view=aspnetcore-9.0)
+- [ResXManager – Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager)
+
+💡 *ResXManager helps manage and synchronize `.resx` files across different languages and keeps feature-based resource folders organized.*
 
 ---
 
 ## 🧱 Exercise Steps
 
-### ⚙️ Section 1 — Create Feature-Based Resource Files
+## ⚙️ Section 1 — Create Feature-Based Resource Files
 
-#### Step 1 – Add Resource Files for the Homepage
-In the `Resources/Features/Home` folder, create three resource files:
+### Step 1 — Create the resource files
+In the `Resources/Features/Home` folder, create:
+
 ```
 HomeResource.resx
-HomeResource.fr.resx
 HomeResource.nl.resx
+HomeResource.fr.resx
 ```
-💡 After creating each file, open its properties and set **Access Modifier → Public** (or use **Custom Tool → PublicResXFileCodeGenerator**).  
-This ensures your translations can be referenced directly (e.g., `@Home.Title`).
 
----
+💡 Set **Access Modifier → Public** (or use **Custom Tool → PublicResXFileCodeGenerator**) for each file.
+This allows you to reference translations directly in components, for example: `@HomeResource.Title`.
 
-### ⚙️ Section 2 — Define Translation Keys
+🖼️ **(Replace this line with a screenshot of the Visual Studio Properties panel showing the Access Modifier / Custom Tool settings.)**
 
-#### Step 1 – Add Translations
-Add the following keys and values for each language version:
+### Step 2 — Add translation keys
+Add the following keys to all three resource files:
 
-| French | Dutch |
-| --- | --- |
-| Bienvenue sur DevoLearning | Welkom bij DevoLearning |
-| `Nous sommes le {0}.` | `Vandaag is het {0}.` |
-| `<b>Continuez à apprendre et à grandir !</b>` | `<b>Blijf leren en groeien!</b>` |
+| Resource Key | Dutch | French |
+|--------------|--------|---------|
+| Title | Welkom | Bienvenue |
+| Description | Vandaag is {0} | Aujourd’hui, nous sommes le {0} |
+| Encouragement | <b>Blijf leren en ontdek meer!</b> | <b>Continuez à apprendre et à explorer !</b> |
 
-💡 The encouragement line includes `<b>` tags — you’ll later render it using `MarkupString` so it appears bold instead of escaped.
+💡 *The encouragement line includes `<b>` tags — you’ll later render it using `MarkupString` so the text appears bold instead of escaped.*
 
----
 
-### ⚙️ Section 3 — Update the Homepage to Use Localized Texts
+## ⚙️ Section 2 — Update the Homepage to Use Localized Texts
 
-#### Step 1 – Replace Hardcoded Strings
-Open your `Index.razor` page and update the title and description to use the localized resources.
+### Step 1 — Replace hardcoded strings
+Open `Features/Home/Pages/Index.razor` and replace the hardcoded title and description with localized values from `HomeResource`.
 
-💡 Hint: The description should display the current date using `string.Format(@Home.Description, DateTime.Today.ToShortDisplayFormat())`.
+💡 Use `string.Format(HomeResource.Description, DateTime.Today.ToShortDisplayFormat())` to insert the culture-aware date.
 
-🖼️ Example layout (expected result):
+🖼️ **Example layout (expected result):**
 
 <img width="1351" height="300" alt="image" src="https://github.com/user-attachments/assets/a70c38ba-2bb5-4485-a317-140f7a5ee504" />
 <img width="1361" height="300" alt="image" src="https://github.com/user-attachments/assets/1407195b-edb4-4490-a500-8171d080ace0" />
 
+## ⚙️ Section 3 — Verify Localization in the Application
 
----
+### Step 1 — Run the application
+Start your application and navigate to the Home page.
+Confirm that the title, date message, and encouragement line now use the localized values from `HomeResource`.
 
-### ⚙️ Section 4 — Test the Language Switcher
+### Step 2 — Switch the UI culture
+Change your UI culture (for example by adjusting the browser language or the culture defined in `Program.cs`) and verify that:
 
-#### Step 1 – Verify Language Changes
-Use the **culture selector** in the top bar to switch between **French** and **Dutch**.  
-Confirm that all texts on the Homepage are correctly translated.
+- Dutch translations appear for `nl`
+- French translations appear for `fr`
 
 ---
 
 ## 🧩 Focus Points
-- Prefer **feature-based `.resx` files** over global ones to improve maintainability.  
-- Always set resource **Access Modifier → Public** to allow direct access.  
-- Use **`MarkupString`** for localized strings containing HTML.  
-- Use **ResXManager** to synchronize and manage all translations easily.
+- Feature-based `.resx` files keep translations organized and avoid key collisions
+- Localized strings replace hardcoded text, preparing the app for multilingual support
+- Formatting culture-aware values (like dates) with localization
+- Rendering translation text containing HTML using `MarkupString`
 
-## 🧠 Next Steps  
-In the next exercise, you’ll build your first paginated list of people using a data grid.  
+---
+
+## 🧠 Next Steps
+In the next exercise, you’ll use your new localization structure in a real feature by building the first person-related page. This includes creating ViewModels, rendering data from a ServiceClient, and applying localized UI text.
 👉 Continue with [Exercise 04 - PersonOverview](./Exercise_04_PersonOverview.md)

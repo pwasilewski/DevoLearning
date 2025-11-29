@@ -1,82 +1,102 @@
-# Exercise 04 — Person Overview Page
+# Exercise 04 — Person Overview (Feature Structure + Pagination)
 
 ## 🎯 Goal
-Build a **Person Overview Page** displaying a paginated list of people using a data grid. This exercise introduces feature folder structuring, ViewModels, and service communication patterns — essential for scalable Blazor applications.
+In this exercise, you will build the **Person Overview** feature, including its folder structure, models, ViewModel, ServiceClient, and Razor page. This establishes the end-to-end workflow you’ll reuse across all future Person features (Details, Create, Edit, Lookups) and later across other modules.
 
 ## 🧠 Context
-You’ll create a `Persons/Overview` feature that follows a layered architecture. It separates concerns clearly between UI, state management, and service access. You’ll also define mock data to simulate backend communication and prepare for real API integration later.
+Until now, your application contained placeholder pages without real feature structure. The Person Overview is the first dynamic feature: it retrieves data (mocked for now), loads it through a ViewModel, and displays it using pagination.  
+This exercise introduces your long‑term feature pattern:  
+**Models → Query → ServiceClient → ViewModel → Razor Page**
 
----
+All future exercises will follow the same structure.
 
 ## 📚 Learn / Review Before Starting
-- [Blazor Component Architecture](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/)
-- [Dependency Injection in Blazor](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection)
-- [Interfaces in C#](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/)
+- [Blazor Component Architecture – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/)
+- [Dependency Injection in Blazor – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection)
+- [Interfaces in C# – Microsoft Docs](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/)
 
 ---
 
 ## 🧱 Exercise Steps
 
 ### ⚙️ Section 1 — Prepare the Feature Folder Structure
-Before writing code, create the following structure under your `Features` folder. Each subfolder has a distinct role in maintaining clean architecture.
 
+#### Step 1 — Understand the feature structure
+All features in this training follow this pattern:
+
+```
+Features/
+└── [FeatureName]/
+    └── [SubFeature]/
+        ├── Components/      → Smaller pieces of UI used to split pages
+        ├── Models/          → Contains models and query/filter classes
+        ├── Pages/           → Razor pages with @attribute [Route]
+        ├── ServiceClients/  → Responsible for communicating with backend APIs
+        ├── Validators/      → FluentValidation rules (if needed)
+        └── ViewModels/      → Manages UI state & logic between UI and services
+```
+
+💡 This architecture ensures separation of concerns and keeps features maintainable over time.
+
+#### Step 2 — Create the structure for this exercise
 ```
 Features/
 └── Persons/
     └── Overview/
-        ├── Components/      → Reusable UI components (buttons, filters, etc.)
-        ├── Pages/           → Razor pages with a @page route (entry points)
-        ├── ServiceClients/  → Responsible for frontend-to-backend communication
-        ├── ViewModels/      → Manages page state and logic between UI & services
-        └── Models/          → Contains models and query/filter classes
+        ├── Models/
+        ├── Pages/
+        ├── ServiceClients/
+        └── ViewModels/
 ```
 
-💡 **Why this matters:** This structure enforces separation of concerns, ensuring each layer has a single responsibility and your app remains maintainable.
+No `Components/` or `Validators/` yet — those will appear in future exercises.
 
----
+### ⚙️ Section 2 — Create the Shared PaginatedResult Model
 
-### ⚙️ Section 2 — Shared PaginatedResult Model
+#### Step 1 — Add the model file  
+In the `Shared/Models` folder, create `PaginatedResult.cs`.
 
-Create a new file in `Shared/Models/PaginatedResult.cs` and define a **generic** type that will represent a paginated data response.
+#### Step 2 — Define the structure
 
-| Property | Type | Description |
+| Property                | Type     | Description |
+|------------------------|----------|-------------|
+| Items                 | List<T>  | Current page of data |
+| PageIndex             | int      | Current page index |
+| PageSize              | int      | Number of items per page |
+| FilteredResultCount   | int      | Total count after filters |
+| UnfilteredResultCount | int      | Total unfiltered count |
+
+💡 Useful documentation: [Generics in C# – Microsoft Docs](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics)
+
+### ⚙️ Section 3 — Create the Overview Models
+
+#### Step 1 — Add PersonOverviewModel  
+In the `Features/Persons/Overview/Models` folder, create `PersonOverviewModel.cs`.
+
+| Property  | Type     | Description |
+|-----------|----------|-------------|
+| Id        | int      | Unique identifier |
+| FirstName | string   | First name |
+| LastName  | string   | Last name |
+| BirthDate | DateTime | Date of birth |
+| Email     | string   | Email address |
+
+💡 Keep the model minimal — it represents only data required for the overview grid.
+
+#### Step 2 — Add PersonOverviewQuery  
+In the same folder, create `PersonOverviewQuery.cs`.
+
+| Property  | Type | Description |
 |-----------|------|-------------|
-| `Items` | `List<T>` | The current page of data. |
-| `PageIndex` | `int` | The current page number. |
-| `PageSize` | `int` | Number of items per page. |
-| `FilteredResultCount` | `int` | Total number of items after filtering. |
-| `UnfilteredResultCount` | `int` | Total number of items without filters. |
+| PageIndex | int  | Current page number |
+| PageSize  | int  | Number of items per page |
 
-💡 Hint: Refer to [Microsoft Docs – Generics in C#](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics).
+💡 This query will later include filters.
 
----
+### ⚙️ Section 4 — Implement the ServiceClient
 
-### ⚙️ Section 3 — PersonModel & PersonQuery
-
-Inside `Features/Persons/Overview/Models/`, create two files:
-
-#### `PersonOverviewModel.cs`
-| Property | Type |
-|-----------|------|
-| `Id` | `int` |
-| `FirstName` | `string` |
-| `LastName` | `string` |
-| `BirthDate` | `DateTime` |
-| `Email` | `string` |
-
-#### `PersonOverviewQuery.cs`
-| Property | Type | Description |
-|-----------|------|-------------|
-| `PageIndex` | `int` | Current page index. |
-| `PageSize` | `int` | Items per page. |
-
-💡 Hint: This query object will evolve to include filtering (by name, email, etc.) in future exercises.
-
----
-
-### ⚙️ Section 4 — Service Client Interface & Mock Implementation
-
-In `ServiceClients/`, create `IPersonOverviewServiceClient.cs`:
+#### Step 1 — Create the interface  
+In the `Features/Persons/Overview/ServiceClients` folder, create `IPersonOverviewServiceClient.cs`.
 
 ```csharp
 public interface IPersonOverviewServiceClient
@@ -85,19 +105,8 @@ public interface IPersonOverviewServiceClient
 }
 ```
 
-Then create `PersonOverviewServiceClient.cs` that implements it similar to this pseudocode:
-
-```csharp
-GetPersonsAsync(query):
-  - Apply filtering (none for now)
-  - Set total counts (filtered/unfiltered)
-  - Slice with Skip(PageIndex * PageSize).Take(PageSize)
-  - Return PaginatedResult<T>
-```
-💡 Hint: For more on pagination, see [Pagination Pattern Overview](https://learn.microsoft.com/en-us/ef/core/querying/pagination).
-
-
-💡 To simulate backend data, initialize 25 mock entries:
+#### Step 2 — Implement the ServiceClient  
+In the same folder, create `PersonOverviewServiceClient.cs` that implements it similar to this pseudocode:
 
 ```csharp
 private readonly List<PersonOverviewModel> _mockData =
@@ -128,117 +137,120 @@ private readonly List<PersonOverviewModel> _mockData =
     new() { Id = 24, FirstName = "Xenia", LastName = "Petrova", BirthDate = new DateTime(1993, 11, 16), Email = "xenia.petrova@example.com" },
     new() { Id = 25, FirstName = "Yara", LastName = "Haddad", BirthDate = new DateTime(1997, 5, 2), Email = "yara.haddad@example.com" },
 ];
+
+GetPersonsAsync(query):
+    - Apply filtering (none for now)
+    - Set total counts (filtered/unfiltered)
+    - Slice with Skip(PageIndex * PageSize).Take(PageSize)
+    - Return PaginatedResult<T>
 ```
 
----
+💡 Hint: For more on pagination, see: [Pagination Pattern Overview – Microsoft Docs](https://learn.microsoft.com/en-us/ef/core/querying/pagination)
 
-### ⚙️ Section 5 — ViewModel Interface & Implementation
+### ⚙️ Section 5 — Implement the ViewModel
 
-Create the interface in `ViewModels/IPersonOverviewViewModel.cs`:
+#### Step 1 — Create the interface  
+In the `Features/Persons/Overview/ViewModels` folder, create `IPersonOverviewViewModel.cs`.
 
 ```csharp
 public interface IPersonOverviewViewModel
 {
     bool IsLoading { get; }
+
     PersonOverviewQuery Query { get; }
-    PaginatedResult<PersonOverviewModel> PaginatedResult { get; }
+    PaginatedResult<PersonOverviewModel>? PaginatedResult { get; }
+
     Task OnInitializedAsync(IErrorComponent errorComponent);
     Task SearchAsync();
 }
 ```
 
-💡 Explanation:  
-The ViewModel mediates between UI and service. It handles the **page lifecycle**, manages loading states, and communicates with the `IPersonServiceClient`.
+#### Step 2 — Implement the ViewModel  
+In the same folder, create `PersonOverviewViewModel.cs` that implements it similar to this pseudocode:
 
-Your `PersonOverviewViewModel` class will inject `PersonOverviewServiceClient` (via constructor) and implement logic similar to this pseudocode:
-
-```csharp
+```
 OnInitializedAsync(errorComponent):
-  - Store errorComponent
-  - Initialize Query (defaults)
-  - await SearchAsync()
+    _errorComponent = errorComponent
+    Query = new PersonOverviewQuery { PageIndex = 0, PageSize = 10 }
+    await SearchAsync()
 
 SearchAsync():
-  - IsLoading = true
-  - try:
-      PaginatedResult = await _serviceClient.GetPersonsAsync(Query)
+    IsLoading = true
+    try:
+        PaginatedResult = await _serviceClient.GetPersonsAsync(Query)
     catch ex:
-      _errorComponent.ProcessError(ex)
+        _errorComponent.ProcessError(ex)
     finally:
-      IsLoading = false
+        IsLoading = false
 ```
 
----
+💡 The ViewModel manages UI state, loading, page queries, and error handling.
 
-### ⚙️ Section 6 — Create the Page and Code-Behind
+### ⚙️ Section 6 — Create the Person Overview Page
 
 Now connect everything in a Razor page that displays the list of persons.
 
 This step introduces several Blazor concepts at once:
+
 - Reusing shared components like `PageIntro`
 - Displaying data in a `MudDataGrid`
 - Using `[Inject]` for dependency injection
 - Handling parameters via `[CascadingParameter]`
 - Calling async methods during initialization
 
-#### Step 1 — Create the Razor Page
-Add a new Razor file named `PersonOverview.razor` under `Features/Persons/Overview/Pages`.
+#### Step 1 — Add localization keys  
+In the `Resources/Features/Persons` folder, create `Persons.resx` with:
 
-Start with a simple scaffold to structure the page:
+| Resource Key               | Dutch                                                                 | French                                                                 |
+|----------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------|
+| PersonOverview_Title       | Personenoverzicht                                                     | Aperçu des personnes                                                   |
+| PersonOverview_Description | Welkom op de personenoverzichtspagina. Hier vindt u informatie over verschillende personen in ons systeem. | Bienvenue sur la page d’aperçu des personnes. Vous trouverez ici des informations sur différentes personnes dans notre système. |
+| Name                       | Naam                                                                  | Nom                                                                    |
+| BirthDate                  | Geboortedatum                                                        | Date de naissance                                                      |
+| Email                      | E-mailadres                                                           | Adresse e-mail                                                         |
+
+#### Step 2 — Create the Razor Page  
+In the `Features/Persons/Overview/Pages` folder, create `PersonOverview.razor`:
+
 ```razor
 @page "/Persons"
 
-@using Nihdi.DevoLearning.Presentation.Features.Persons.Overview.Models
-@using Nihdi.DevoLearning.Presentation.Resources.Features.Persons
-
 <PageIntro Title="@PersonsResource.PersonOverview_Title">
-  <MudGrid>
-    <MudItem xs="12" xl="8">
-      <MudText>@PersonsResource.PersonOverview_Description</MudText>
-    </MudItem>
-  </MudGrid>
+    <MudGrid>
+        <MudItem xs="12" xl="8">
+            <MudText>@PersonsResource.PersonOverview_Description</MudText>
+        </MudItem>
+    </MudGrid>
 
-  <!-- TODO: Add DataGrid displaying persons -->
+    <MudDataGrid T="PersonOverviewModel"
+                 SortMode="SortMode.None"
+                 ServerData="ServerReload">
+        <Columns>
+            <PropertyColumn Property="x => x.LastName" Title="@PersonsResource.Name">
+                <CellTemplate>
+                    @($"{context.Item.LastName} {context.Item.FirstName}")
+                </CellTemplate>
+            </PropertyColumn>
+
+            <PropertyColumn Property="x => x.BirthDate" Title="@PersonsResource.BirthDate">
+                <CellTemplate>
+                    @context.Item.BirthDate.ToShortDisplayFormat()
+                </CellTemplate>
+            </PropertyColumn>
+
+            <PropertyColumn Property="x => x.Email" Title="@PersonsResource.Email" />
+        </Columns>
+
+        <PagerContent>
+            <MudDataGridPager />
+        </PagerContent>
+    </MudDataGrid>
 </PageIntro>
 ```
 
-💡 This uses localization keys (_`@PersonsResource.*`_) and the _`PageIntro`_ component you created earlier.
+#### Step 3 — Create the code-behind file  
+In the same folder, create `PersonOverview.razor.cs`:
 
-#### Step 2 — Add the DataGrid
-Next, use **MudBlazor’s DataGrid** to show paginated data. We’ll connect it to the `ViewModel` in the code-behind.
-```razor
-<MudDataGrid T="PersonOverviewModel"
-             SortMode="SortMode.None"
-             ServerData="ServerReload">
-  <Columns>
-    <PropertyColumn Property="x => x.LastName" Title="@PersonsResource.Name">
-      <CellTemplate>
-        @($"{context.Item.LastName} {context.Item.FirstName}")
-      </CellTemplate>
-    </PropertyColumn>
-
-    <PropertyColumn Property="x => x.BirthDate" Title="@PersonsResource.BirthDate">
-      <CellTemplate>
-        @context.Item.BirthDate.ToShortDisplayFormat()
-      </CellTemplate>
-    </PropertyColumn>
-
-    <PropertyColumn Property="x => x.Email" Title="@PersonsResource.Email" />
-  </Columns>
-
-  <PagerContent>
-    <MudDataGridPager />
-  </PagerContent>
-</MudDataGrid>
-```
-💡 Documentation: [MudBlazor DataGrid Overview](https://mudblazor.com/components/datagrid#server-side-filtering,-sorting-and-pagination).
-
-#### Step 3 — Create the Code-Behind File
-Add a new file: `PersonOverview.razor.cs`.
-
-We’ll now connect the page to the `ViewModel` and handle the data load.
-
-Start by injecting dependencies and cascading the `Error` component:
 ```csharp
 public partial class PersonOverview
 {
@@ -252,53 +264,58 @@ public partial class PersonOverview
     {
         await ViewModel.OnInitializedAsync(ErrorComponent);
     }
-}
-```
 
-💡 References:
-* [Cascading Parameters in Blazor – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters)
-* [Dependency Injection in Blazor – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-9.0)
-
-#### Step 4 — Implement the ServerReload Logic
-Add the method that MudDataGrid will call when new data needs to load.
-```csharp
-private async Task<GridData<PersonOverviewModel>> ServerReload(GridState<PersonOverviewModel> state)
-{
-    ViewModel.Query.PageIndex = state.Page;
-    ViewModel.Query.PageSize  = state.PageSize;
-
-    await ViewModel.SearchAsync();
-
-    var paginatedResult = ViewModel.PaginatedResult;
-    return new GridData<PersonOverviewModel>
+    private async Task<GridData<PersonOverviewModel>> ServerReload(GridState<PersonOverviewModel> state)
     {
-        TotalItems = paginatedResult?.UnfilteredResultCount ?? 0,
-        Items      = paginatedResult?.Items ?? [],
-    };
+        ViewModel.Query.PageIndex = state.Page;
+        ViewModel.Query.PageSize  = state.PageSize;
+
+        await ViewModel.SearchAsync();
+
+        var result = ViewModel.PaginatedResult;
+        return new GridData<PersonOverviewModel>
+        {
+            TotalItems = result?.UnfilteredResultCount ?? 0,
+            Items = result?.Items ?? [],
+        };
+    }
 }
 ```
-💡 This pattern allows the DataGrid to handle paging on the server (or simulated via your ServiceClient).
 
-#### Step 5 — Run and Verify
-Open your app and navigate to:
-- https://localhost:7259/Persons
+💡 Useful references:  
+- [Blazor Code Separation - Youtube](https://www.youtube.com/watch?v=xiy0VHUbZJI)
+- [Cascading Parameters in Blazor – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/cascading-values-and-parameters)  
+- [Cascading Parameters in Blazor – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection)  
 
-Verify:
-- The header shows localized title and description via `PageIntro`.
+#### Step 4 — Run and verify
+Run the application and navigate to:
+
+```
+https://localhost:7259/Persons
+```
+
+Verify that:
+
+- The header shows the localized title and description via `PageIntro`.
 - The grid loads the first page of people without errors.
-- The pager works (next/previous updates rows).
-- Dates are formatted via `ToShortDisplayFormat()`.
+- The pager works (next/previous updates the rows).
+- Dates are formatted using `ToShortDisplayFormat()`.
+
+🖼️ Example layout (expected result):    
+(Add screenshot in the solution.)
 
 ---
 
 ## 🧩 Focus Points
-- Proper **feature folder organization**
-- Creating **ViewModel** and **ServiceClient** layers
-- Handling **async lifecycle and loading states**
-- Understanding **pagination structures**
+- Setting up the Person Overview feature using a clean and scalable folder structure
+- Creating reusable models (PaginatedResult, PersonOverviewModel, PersonOverviewQuery)
+- Implementing an in-memory ServiceClient with pagination
+- Using a ViewModel to orchestrate UI logic and manage loading state
+- Displaying paginated data using MudBlazor’s DataGrid
+- Integrating localization for all UI labels
 
 ---
 
-## 🧠 Next Steps  
+## 🧠 Next Steps
 In the next exercise, you’ll centralize route management for your app.  
 👉 Continue with [Exercise 05 - Routing Constants and Navigation Integration](./Exercise_05_Routing_Constants_and_Navigation_Integration.md)

@@ -1,0 +1,47 @@
+# DevoLearning .gitignore
+
+# Visual Studio artifacts
+.vs/
+*.user
+*.suo
+
+# Build outputs
+bin/
+obj/
+
+# Logs
+*.log
+
+# Generated files / publish
+publish/
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# Rider / JetBrains
+.idea/
+
+# VS Code
+.vscode/
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# Dependency caches
+**/node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet
+project.lock.json
+
+# Terraform / infra (if appears later)
+*.tfstate
+*.tfstate.*
+
