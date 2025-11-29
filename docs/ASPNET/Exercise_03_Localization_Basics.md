@@ -82,5 +82,5 @@ Change your UI culture (for example by adjusting the browser language or the cul
 ---
 
 ## 🧠 Next Steps
-In the next exercise, you’ll use your new localization structure in a real feature by building the first person-related page. This includes creating ViewModels, rendering data from a ServiceClient, and applying localized UI text.
+In the next exercise, you’ll use your new localization structure in a real feature by building the first person-related page. This includes creating ViewModels, rendering data from a ServiceClient, and applying localized UI text.   
 👉 Continue with [Exercise 04 - PersonOverview](./Exercise_04_PersonOverview.md)
