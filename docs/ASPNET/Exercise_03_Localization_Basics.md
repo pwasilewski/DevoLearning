@@ -30,10 +30,16 @@ HomeResource.nl.resx
 HomeResource.fr.resx
 ```
 
-💡 Set **Access Modifier → Public** (or use **Custom Tool → PublicResXFileCodeGenerator**) for each file.
+💡 Set **Code generator → Public** (or use **Custom Tool → PublicResXFileCodeGenerator**) for each file.
 This allows you to reference translations directly in components, for example: `@HomeResource.Title`.
 
-🖼️ **(Replace this line with a screenshot of the Visual Studio Properties panel showing the Access Modifier / Custom Tool settings.)**
+🖼️ 
+**Via ResXManager**   
+<img width="1224" height="254" alt="image" src="https://github.com/user-attachments/assets/9657d24a-dfe6-4c99-8894-4b4ad9307025" />
+
+**Via file properties**   
+<img width="553" height="179" alt="image" src="https://github.com/user-attachments/assets/839edd5a-b71f-44f0-8cdf-8f673d193801" />
+
 
 ### Step 2 — Add translation keys
 Add the following keys to all three resource files:
