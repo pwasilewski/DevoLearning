@@ -1,0 +1,28 @@
+﻿@using Nihdi.DevoLearning.Presentation.Features.Persons.Create.Components
+@using Nihdi.DevoLearning.Presentation.Shared
+
+@attribute [Route(Routing.Persons.Create)]
+
+@if (ViewModel.IsLoading || ViewModel.IsSubmitting)
+{
+    <MudOverlay Visible DarkBackground>
+        <MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
+    </MudOverlay>
+}
+else if (ViewModel.Model == null || ViewModel.Genders == null || ViewModel.CivilStates == null)
+{
+    // Nothing to show
+}
+else if (ViewModel.CreatedPersonId.HasValue)
+{
+    <PersonCreateConfirmation CreatedPersonId="ViewModel.CreatedPersonId.Value" />
+}
+else
+{
+
+    <PersonCreateForm Model="ViewModel.Model"
+                      Genders="ViewModel.Genders"
+                      CivilStates="ViewModel.CivilStates"
+                      OnSubmit="ViewModel.SubmitAsync" />
+
+}
