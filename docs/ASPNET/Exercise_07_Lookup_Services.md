@@ -175,9 +175,10 @@ OnInitializedAsync:
     var civilState = civilStateRecord?.Name?.LocalizedValue ?? "-";
 }
 <MudText Class="list-definition">@civilState</MudText>
+```
 
 🖼️ Example layout (expected result):  
-<img width="1332" height="841" alt="image" src="https://github.com/user-attachments/assets/3ae12acc-e211-4afa-af4a-1cd269702ad3" />```
+<img width="1332" height="841" alt="image" src="https://github.com/user-attachments/assets/3ae12acc-e211-4afa-af4a-1cd269702ad3" />
 
 ---
 
