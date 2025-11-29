@@ -1,16 +1,21 @@
-# Exercise 06 — Person Details Page
+# Exercise 07 — Lookup Services (Gender and Civil State)
 
 ## 🎯 Goal
-In this exercise, you will build a simple and reusable lookup system (using Gender as the example) to support static reference data in your application. You’ll create models, a lookup service, dependency injection registration, and finally use the service inside a Razor Page. This pattern is used all the time in real systems for things like countries, civil states, categories, and more.
+In this exercise, you will build a simple and reusable lookup system (using Gender as the example) to support static reference data in your application. You’ll create models, lookup service interfaces and implementations, register them in dependency injection, and finally use the service inside a Razor Page. This pattern is used all the time in real systems for things like countries, civil states, categories, and more.
 
 ## 🧠 Context
-Static reference data shouldn’t live in the middle of your business logic. Creating dedicated lookup services keeps your controllers/pages clean and your logic reusable. You’ll also be extending your architecture in a way that supports localization and future data-source changes (e.g., switching from in-memory lists to database tables later).
+Static reference data should never live inside business logic. By introducing lookup services, you ensure:
 
----
+- cleaner controllers/pages
+- reusable and isolated reference data logic
+- easy localization
+- future scalability (switching from in-memory to database-backed lookups)
+
+This exercise extends your existing structure to support localized reference lists. You will implement lookups for both **Gender** and **Civil State**, using `LocalizedStringModel`.
 
 ## 📚 Learn / Review Before Starting
-- [ASP.NET Core Dependency Injection basics](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-basics)  
-- [Computed properties in C#](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)  
+- [ASP.NET Core Dependency Injection basics – Microsoft Docs](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-basics)
+- [Computed properties in C# – Microsoft Docs](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)
 
 ---
 
@@ -18,51 +23,39 @@ Static reference data shouldn’t live in the middle of your business logic. Cre
 
 ### ⚙️ Section 1 — Create Lookup Models
 
-#### Step 1 — Add LocalizedStringModel
-
-Create `LocalizedStringModel.cs` in your `Shared/Models` folder.  
-This model will store both French and Dutch translations and expose a computed property for the current UI culture.
-
-```
-Shared/
-└── Models/
-    └── LocalizedStringModel.cs
-```
+#### Step 1 — Create `LocalizedStringModel`
+In the `Shared/Models` folder, create `LocalizedStringModel.cs`.
 
 | Property       | Type   | Description                                |
-| -------------- | ------ | ------------------------------------------ |
+|----------------|--------|--------------------------------------------|
 | ValueFr        | string | French translation                         |
 | ValueNl        | string | Dutch translation                          |
 | LocalizedValue | string | Computed value based on `CurrentUICulture` |
 
+💡 Useful documentation:  
+https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties#expression-body-definitions
 
-**💡 Useful Documentation — Computed Properties:** [Computed properties in C#](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties#expression-body-definitions)
-
-#### Step 2 — Add GenderModel
-
-Create `GenderModel.cs` in the same folder.
-
-| Property | Type                 |
-| -------- | -------------------- |
-| Id       | int                  |
-| Name     | LocalizedStringModel |
-
-#### Step 3 — Add CivilStateModel
-
-Create `CivilStateModel.cs` in the same folder.
+#### Step 2 — Create `GenderModel`
+In the same folder, create `GenderModel.cs`.
 
 | Property | Type                 |
-| -------- | -------------------- |
-| Id       | int                  |
-| Name     | LocalizedStringModel |
+|---------|----------------------|
+| Id      | int                  |
+| Name    | LocalizedStringModel |
 
----
+#### Step 3 — Create `CivilStateModel`
+In the same folder, create `CivilStateModel.cs`.
 
-### ⚙️ Section 2 — Gender Lookup Service
+| Property | Type                 |
+|---------|----------------------|
+| Id      | int                  |
+| Name    | LocalizedStringModel |
 
-#### Step 1 — Define the Interface
+### ⚙️ Section 2 — Implement Gender Lookup Service
 
-Create `IGenderLookupService.cs` in `Services/Genders/`:
+#### Step 1 — Create the interface
+In the `Services/Genders` folder, create `IGenderLookupService.cs`.
+
 ```csharp
 public interface IGenderLookupService
 {
@@ -70,28 +63,26 @@ public interface IGenderLookupService
 }
 ```
 
-#### Step 2 — Implement the Service
+#### Step 2 — Implement the service
+In the same folder, create `GenderLookupService.cs` that implements it similar to this pseudocode:
 
-Create `GenderLookupService.cs` in the same folder.  
-Mock the data with a static list:
-```csharp
+```
 private static readonly IReadOnlyList<GenderModel> _genders =
 [
     new() { Id = 0, Name = new LocalizedStringModel { ValueFr = "Masculin", ValueNl = "Mannelijk" } },
     new() { Id = 1, Name = new LocalizedStringModel { ValueFr = "Féminin", ValueNl = "Vrouwelijk" } },
     new() { Id = 2, Name = new LocalizedStringModel { ValueFr = "X", ValueNl = "X" } },
 ];
+
+GetAsync:
+    return _genders
 ```
 
-Return this list from your `GetAsync()` method.
+### ⚙️ Section 3 — Implement Civil State Lookup Service
 
----
+#### Step 1 — Create the interface
+In the `Services/CivilStates` folder, create `ICivilStateLookupService.cs`.
 
-### ⚙️ Section 3 — Civil State Lookup Service
-
-#### Step 1 — Define the Interface
-
-Create `ICivilStateLookupService.cs` in `Services/CivilStates/`:
 ```csharp
 public interface ICivilStateLookupService
 {
@@ -99,11 +90,10 @@ public interface ICivilStateLookupService
 }
 ```
 
-#### Step 2 — Implement the Service
+#### Step 2 — Implement the service
+In the same folder, create `CivilStateLookupService.cs` that implements it similar to this pseudocode:
 
-Create `CivilStateLookupService.cs` in the same folder.  
-Mock the data with a static list:
-```csharp
+```
 private static readonly IReadOnlyList<CivilStateModel> _states =
 [
     new() { Id = 0, Name = new() { ValueFr = "Célibataire", ValueNl = "Ongehuwd" } },
@@ -113,69 +103,90 @@ private static readonly IReadOnlyList<CivilStateModel> _states =
     new() { Id = 4, Name = new() { ValueFr = "Séparé de corps et de biens", ValueNl = "Scheiding van tafel en bed en van goederen" } },
     new() { Id = 5, Name = new() { ValueFr = "Dissolution du mariage sous une forme particulière", ValueNl = "Ontbinding van het huwelijk op een bijzondere wijze" } },
     new() { Id = 6, Name = new() { ValueFr = "Partenariat", ValueNl = "Partnerschap" } },
-    new() { Id = 7, Name = new() { ValueFr = "Indéterminé", ValueNl = "Onbepaald" } }
+    new() { Id = 7, Name = new() { ValueFr = "Indéterminé", ValueNl = "Onbepaald" } },
 ];
+
+GetAsync:
+    return _states
 ```
-
-Return this list from your `GetAsync()` method.
-
----
 
 ### ⚙️ Section 4 — Register Lookup Services in DI
 
 Before using your lookup services, you must register them in dependency injection.
 
-#### DI Lifetimes in Blazor WebAssembly
-
 | Lifetime      | When to Use                  | Notes                                                   |
-| ------------- | ---------------------------- | ------------------------------------------------------- |
-| **Singleton** | Static, unchanging data      | **Best for lookup services** like Gender or Civil State |
-| **Scoped**    | Per user session             | Used for API services; used here for consistency        |
-| **Transient** | Recreated on every injection | Rarely needed in Blazor                                 |
+|---------------|------------------------------|---------------------------------------------------------|
+| Singleton     | Static, unchanging data       | Ideal for lookup services                               |
+| Scoped        | Per user session              | Used here for consistency with your existing setup      |
+| Transient     | Recreated on every injection  | Rarely needed in Blazor                                 |
 
+💡 Even though Singleton fits lookup tables best, we intentionally use **Scoped** to match your current architecture.
 
-**💡 Even though Singleton is the ideal lifetime for this scenario, we’ll register these services as Scoped to stay consistent with your current architecture and keep future API integration straightforward.**
+➡️ Add these registrations in your `PresentationModule.cs`.
 
-For extra reading on DI and lifetimes:
+Reference:  
 https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection
 
-You can add these registrations in your `PresentationModule.cs`.
+### ⚙️ Section 5 — Use Lookup Data in a Razor Page
 
----
+#### Step 1 — Update the ViewModel interface
 
-### ⚙️ Section 5 — Using Lookup Data in a Razor Page
+```csharp
+public interface IPersonDetailsViewModel
+{
+    // existing members...
 
-To display translated values for Gender and Civil State, follow this approach:
+    IReadOnlyList<GenderModel> Genders { get; }
+    IReadOnlyList<CivilStateModel> CivilStates { get; }
 
-#### Step 1 – Update the ViewModel Interface
+    // existing members...
+}
+```
 
-- Add `IReadOnlyList<GenderModel> Genders { get; }` and `IReadOnlyList<CivilStateModel> CivilStates { get; }` to your `IPersonDetailsViewModel` interface.
+#### Step 2 — Update the ViewModel initialization
 
-#### Step 2 – Inject Lookup Services
+```
+OnInitializedAsync:
+    ...
+    try:
+        ...
+        Genders = await genderLookupService.GetAsync()
+        CivilStates = await civilStateLookupService.GetAsync()
+        ...
+    catch ex:
+    ...
+```
 
-- Inject the new lookup services into your `PersonDetailsViewModel` implementation.
-- Load the lookup data (genders and civil states) asynchronously when initializing the ViewModel.
+💡 Don’t forget to inject the lookup services into the existing ViewModel.
 
-#### Step 3 – Expose Lookup Data
+#### Step 3 — Render localized lookup values in the Razor Page
 
-- Make sure your ViewModel exposes the loaded lists via the properties you added in Step 1.
+```razor
+@{
+    var genderRecord = ViewModel.Genders.FirstOrDefault(_ => _.Id == ViewModel.Person.Gender);
+    var gender = genderRecord?.Name?.LocalizedValue ?? "-";
+}
+<MudText Class="list-definition">@gender</MudText>
+```
 
-#### Step 4 – Use Lookup Data in the Razor Page
-
-- In your Razor page, check that `Genders` and `CivilStates` are not null before attempting to use them.
-- To display the translated value for a person’s gender or civil state, use `FirstOrDefault()` to find the matching item by ID.
-- Show the `LocalizedValue` if found, or a fallback value like `"-"` if not.
+```razor
+@{
+    var civilStateRecord = ViewModel.CivilStates.FirstOrDefault(_ => _.Id == ViewModel.Person.CivilState);
+    var civilState = civilStateRecord?.Name?.LocalizedValue ?? "-";
+}
+<MudText Class="list-definition">@civilState</MudText>
+```
 
 ---
 
 ## 🧩 Focus Points
-- `LocalizedStringModel` introduces culture-aware computed properties
-- Lookup services simplify complex UI translation logic
-- Using interfaces makes mocking and future API migration trivial
-- DI lifetime decisions can influence performance and architectur
+- `LocalizedStringModel` enables culture-aware values  
+- Lookup services simplify UI translation logic  
+- Interfaces allow easy mocking and future API migration  
+- DI lifetimes influence performance and architecture  
 
 ---
 
-## 🧠 Next Steps  
-In the next exercise, you’ll implement the creation of a brand-new Person record, using FluentValidation to validate all fields (including gender and civil state).   
-👉 Continue with 
+## 🧠 Next Steps
+In the next exercise, you will build the **Person Create feature**: feature folder, ViewModel, mock ServiceClient, Razor components, and workflow (loading → form → confirmation).  
+👉 Continue with [Exercise 08 — Person Creation (Feature Structure + Workflow)](./Exercise_08_Person_Create.md).
