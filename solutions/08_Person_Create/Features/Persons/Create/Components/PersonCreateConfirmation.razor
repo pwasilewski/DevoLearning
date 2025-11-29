@@ -1,0 +1,39 @@
+﻿@using Nihdi.DevoLearning.Presentation.Resources.Features.Persons
+@using Nihdi.DevoLearning.Presentation.Shared
+@using Nihdi.DevoLearning.Presentation.Shared.Navigation
+
+<PageIntro Title="@PersonsResource.PersonCreateConfirmation_Title">
+
+    <MudGrid>
+        <MudItem xs="12" xl="8">
+
+            <div class="btn-group">
+                <MudButton Variant="Variant.Filled" OnClick="NavigateToDetails">@PersonsResource.NavigateToDetails</MudButton>
+                <MudButton Variant="Variant.Outlined" OnClick="NavigateToOverview">@PersonsResource.NavigateToOverview</MudButton>
+                <MudButton Variant="Variant.Outlined" OnClick="NavigateToForm">@PersonsResource.NavigateToForm</MudButton>
+            </div>
+
+        </MudItem>
+    </MudGrid>
+
+</PageIntro>
+
+@code {
+    [Inject] public INavigationService NavigationService { get; set; }
+    [Parameter] public int CreatedPersonId { get; set; }
+
+    private void NavigateToDetails()
+    {
+        NavigationService.NavigateTo($"/Persons/{CreatedPersonId}/Details");
+    }
+
+    private void NavigateToOverview()
+    {
+        NavigationService.NavigateTo(Routing.Persons.Overview);
+    }
+
+    private void NavigateToForm()
+    {
+        NavigationService.NavigateTo(Routing.Persons.Create);
+    }
+}
