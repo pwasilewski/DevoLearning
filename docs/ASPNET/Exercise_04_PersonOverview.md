@@ -302,7 +302,8 @@ Verify that:
 - Dates are formatted using `ToShortDisplayFormat()`.
 
 🖼️ Example layout (expected result):    
-(Add screenshot in the solution.)
+<img width="1326" height="844" alt="image" src="https://github.com/user-attachments/assets/64a69b3b-28e4-4a2f-b06c-feae1db4d6c2" />
+
 
 ---
 
