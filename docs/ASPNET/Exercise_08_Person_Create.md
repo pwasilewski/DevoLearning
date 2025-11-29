@@ -158,9 +158,6 @@ else
 }
 ```
 
-🖼️ **Example layout (expected result):**  
-*(Insert screenshot in the Solution.)*
-
 💡 *This page acts purely as a UI state machine.*
 
 ### ⚙️ Section 7 — Implement PersonCreateForm Component
@@ -227,7 +224,8 @@ In the `Features/Persons/Create/Components` folder, create `PersonCreateForm.raz
 ```
 
 🖼️ **Example layout (expected result):**  
-*(Insert screenshot in the Solution.)*
+<img width="1327" height="840" alt="image" src="https://github.com/user-attachments/assets/3f0adce8-ebbc-4379-846f-12aacba7adbf" />
+
 
 💡 *Refer to the NIHDI MudBlazor style guide for [form layout patterns](https://webappsa.riziv-inami.fgov.be/styleguide-mudblazor8-wfe/pattern/form).*
 
@@ -264,7 +262,8 @@ In the `Features/Persons/Create/Components` folder, create `PersonCreateConfirma
 ```
 
 🖼️ **Example layout (expected result):**  
-*(Insert screenshot in the Solution.)*
+<img width="1315" height="840" alt="image" src="https://github.com/user-attachments/assets/a9a263a8-beb4-44e5-955b-ee67e9988191" />
+
 
 ---
 
