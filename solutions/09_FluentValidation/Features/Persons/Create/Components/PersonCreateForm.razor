@@ -1,0 +1,88 @@
+﻿@using Nihdi.DevoLearning.Presentation.Features.Persons.Create.Models
+@using Nihdi.DevoLearning.Presentation.Features.Persons.Create.Validators
+@using Nihdi.DevoLearning.Presentation.Resources.Features.Persons
+@using Nihdi.DevoLearning.Presentation.Shared
+@using Nihdi.DevoLearning.Presentation.Shared.Models
+@using Nihdi.DevoLearning.Presentation.Shared.Navigation
+
+<PageIntro Title="@PersonsResource.PersonCreateForm_Title">
+
+    <MudGrid>
+        <MudItem xs="12" xl="8">
+
+            <MudForm @ref="@_form" Model="Model" Validation="_validator.ValidateValue">
+                <MudGrid>
+                    <MudItem xs="12" md="6">
+                        <MudTextField Label="@PersonsResource.FirstName" @bind-Value="Model.FirstName" For="(() => Model.FirstName)" />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudTextField Label="@PersonsResource.LastName" @bind-Value="Model.LastName" For="(() => Model.LastName)" />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudDatePicker Label="@PersonsResource.BirthDate" @bind-Date="Model.BirthDate" For="(() => Model.BirthDate)" Editable Clearable />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudDatePicker Label="@PersonsResource.DeceasedDate" @bind-Date="Model.DeceasedDate" For="(() => Model.DeceasedDate)" Editable Clearable />
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudSelect T="int?" Label="@PersonsResource.Gender" @bind-Value="Model.GenderId" For="(() => Model.GenderId)" Clearable>
+                            @foreach (var gender in Genders)
+                            {
+                                <MudSelectItem T="int?" Value="gender.Id">@gender.Name.LocalizedValue</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="12" md="6">
+                        <MudSelect T="int?" Label="@PersonsResource.CivilState" @bind-Value="Model.CivilStateId" For="(() => Model.CivilStateId)" Clearable>
+                            @foreach (var civilState in CivilStates)
+                            {
+                                <MudSelectItem T="int?" Value="civilState.Id">@civilState.Name.LocalizedValue</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudTextField Label="@PersonsResource.Email" InputType="InputType.Email" @bind-Value="Model.Email" For="(() => Model.Email)" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudTextField Label="@PersonsResource.Mobile" @bind-Value="Model.Mobile" For="(() => Model.Mobile)" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <div class="btn-group">
+                            <MudButton Variant="Variant.Outlined" OnClick="Cancel">@Global.Cancel</MudButton>
+                            <MudButton Variant="Variant.Filled" OnClick="Submit">@Global.Submit</MudButton>
+                        </div>
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+
+        </MudItem>
+    </MudGrid>
+
+</PageIntro>
+
+@code {
+    [Inject] public INavigationService NavigationService { get; set; }
+
+    [Parameter] public PersonCreateModel Model { get; set; }
+    [Parameter] public IReadOnlyList<GenderModel> Genders { get; set; }
+    [Parameter] public IReadOnlyList<CivilStateModel> CivilStates { get; set; }
+    [Parameter] public EventCallback OnSubmit { get; set; }
+
+    private readonly PersonCreateModelValidator _validator = new PersonCreateModelValidator();
+    private MudForm _form;
+
+    private async Task Submit()
+    {
+        await _form.Validate();
+
+        if (_form.IsValid && OnSubmit.HasDelegate)
+        {
+            await OnSubmit.InvokeAsync();
+        }
+    }
+
+    private void Cancel()
+    {
+        NavigationService.NavigateTo(Routing.Persons.Overview);
+    }
+}

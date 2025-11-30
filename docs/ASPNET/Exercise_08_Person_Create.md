@@ -279,5 +279,5 @@ In the `Features/Persons/Create/Components` folder, create `PersonCreateConfirma
 ## 🧠 Next Steps
 Next exercise introduces **FluentValidation** to implement field-level and cross-field validation.
 
-👉 Continue with **Exercise 09 — Person Creation Validation (FluentValidation)**
+👉 Continue with [Exercise 09 — Person Creation Validation (FluentValidation)](./Exercise_09_FluentValidation.md)
 
