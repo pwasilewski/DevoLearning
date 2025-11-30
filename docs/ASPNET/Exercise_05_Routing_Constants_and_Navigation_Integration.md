@@ -84,4 +84,5 @@ Also ensure both links use the localized labels from your `Navigation.resx` file
 
 ## 🧠 Next Steps
 In the next exercise, you’ll build a **Person Details page**, loading a single person based on the `id` provided in the route and enabling navigation from the overview grid.  
+
 👉 Continue with [Exercise 06 — Person Details Page](./Exercise_06_PersonDetails.md).

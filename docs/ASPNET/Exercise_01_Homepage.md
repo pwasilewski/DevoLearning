@@ -66,4 +66,5 @@ Confirm that:
 ## 🧠 Next Steps  
 
 In the next exercise, you’ll extract this layout and date formatting into reusable building blocks: a shared `PageIntro` component and a `DateTimeExtensions` helper.  
+
 👉 Continue with [Exercise 02 – Create and Use the PageIntro Component](./Exercise_02_PageIntro.md)

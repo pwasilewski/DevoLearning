@@ -188,4 +188,5 @@ CreatedPersonId = await _serviceClient.CreateAsync(Model);
 
 ## 🧠 Next Steps
 In the next exercise, you’ll enhance your input components by creating a custom base component that trims text inputs on blur. This will improve data consistency and reduce validation errors caused by trailing spaces.    
-👉 Continue with Exercise 10 — Blazor Component Inheritance & Auto-Trim TextField Behavior.
+
+👉 Continue with [Exercise 10 — Blazor Component Inheritance & Auto-Trim TextField Behavior](./Exercise_10_Blazor_Inheritance.md).

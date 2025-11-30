@@ -1,0 +1,37 @@
+﻿@inherits MudTextField<string>
+
+@RenderBase()
+
+@code {
+    // Render the base MudTextField UI
+    RenderFragment RenderBase() => builder => base.BuildRenderTree(builder);
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        // Override the OnBlur handler to run trimming logic
+        OnBlur = EventCallback.Factory.Create<FocusEventArgs>(this, HandleOnBlur);
+    }
+
+    private async Task HandleOnBlur(FocusEventArgs args)
+    {
+        // If the value is null or empty, nothing to trim
+        if (string.IsNullOrEmpty(Value))
+        {
+            return;
+        }
+
+        // Trim the value
+        var trimmed = Value.Trim();
+
+        // Update the field only if the trimmed value is different
+        if (!string.Equals(Value, trimmed, StringComparison.InvariantCultureIgnoreCase))
+        {
+            // Use MudTextField's built-in SetValueAsync to update the value.
+            // This ensures correct event triggering, validation updates,
+            // and two-way binding synchronization — preferable to modifying Value directly.
+            await SetValueAsync(trimmed);
+        }
+    }
+}

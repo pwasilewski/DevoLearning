@@ -88,4 +88,5 @@ In `Features/Home/Pages/Index.razor`, use your new extension method inside the `
 
 ## 🧠 Next Steps
 In the next exercise, you’ll introduce **localization** and learn how to move hardcoded text into `.resx` files while keeping feature modules isolated.  
+
 👉 Continue with [Exercise 03 – Localization Basics](./Exercise_03_Localization_Basics.md)

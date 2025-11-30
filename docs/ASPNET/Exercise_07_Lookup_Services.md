@@ -192,4 +192,5 @@ OnInitializedAsync:
 
 ## 🧠 Next Steps
 In the next exercise, you will build the **Person Create feature**: feature folder, ViewModel, mock ServiceClient, Razor components, and workflow (loading → form → confirmation).  
+
 👉 Continue with [Exercise 08 — Person Creation (Feature Structure + Workflow)](./Exercise_08_Person_Create.md).
