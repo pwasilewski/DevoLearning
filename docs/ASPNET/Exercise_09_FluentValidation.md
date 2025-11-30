@@ -113,6 +113,15 @@ Create `PersonCreateForm.razor` that implements it similar to this pseudocode:
 💡 This connects the form with FluentValidation.
 
 #### Step 4 — Add the `For` attribute on each input
+For every field that is marked as Required in your FluentValidation rules, ensure the corresponding MudBlazor input has the `Required="true"` or simply `Required` attribute.
+```
+<MudTextField Label="First name" @bind-Value="Model.FirstName" Required />
+```
+
+💡 Why this matters:
+Design System uses the `Required` attribute to visually mark required fields and ensure proper asterisk styling, but the **actual validation still comes from FluentValidation**.
+
+#### Step 5 — Add the `For` attribute on each input
 Example:
 
 ```
@@ -121,7 +130,7 @@ For="@(() => Model.FirstName)"
 
 💡 The `For` attribute ensures FluentValidation can attach messages to the correct field.
 
-#### Step 5 — Validate before submitting
+#### Step 6 — Validate before submitting
 Create `PersonCreateForm.razor.cs` that implements it similar to this pseudocode:
 
 ```

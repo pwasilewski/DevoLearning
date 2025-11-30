@@ -13,10 +13,10 @@
             <MudForm @ref="@_form" Model="Model" Validation="_validator.ValidateValue">
                 <MudGrid>
                     <MudItem xs="12" md="6">
-                        <MudTextField Label="@PersonsResource.FirstName" @bind-Value="Model.FirstName" For="(() => Model.FirstName)" />
+                        <MudTextField Label="@PersonsResource.FirstName" @bind-Value="Model.FirstName" For="(() => Model.FirstName)" Required />
                     </MudItem>
                     <MudItem xs="12" md="6">
-                        <MudTextField Label="@PersonsResource.LastName" @bind-Value="Model.LastName" For="(() => Model.LastName)" />
+                        <MudTextField Label="@PersonsResource.LastName" @bind-Value="Model.LastName" For="(() => Model.LastName)" Required />
                     </MudItem>
                     <MudItem xs="12" md="6">
                         <MudDatePicker Label="@PersonsResource.BirthDate" @bind-Date="Model.BirthDate" For="(() => Model.BirthDate)" Editable Clearable />
@@ -25,7 +25,7 @@
                         <MudDatePicker Label="@PersonsResource.DeceasedDate" @bind-Date="Model.DeceasedDate" For="(() => Model.DeceasedDate)" Editable Clearable />
                     </MudItem>
                     <MudItem xs="12" md="6">
-                        <MudSelect T="int?" Label="@PersonsResource.Gender" @bind-Value="Model.GenderId" For="(() => Model.GenderId)" Clearable>
+                        <MudSelect T="int?" Label="@PersonsResource.Gender" @bind-Value="Model.GenderId" For="(() => Model.GenderId)" Clearable Required>
                             @foreach (var gender in Genders)
                             {
                                 <MudSelectItem T="int?" Value="gender.Id">@gender.Name.LocalizedValue</MudSelectItem>
@@ -33,7 +33,7 @@
                         </MudSelect>
                     </MudItem>
                     <MudItem xs="12" md="6">
-                        <MudSelect T="int?" Label="@PersonsResource.CivilState" @bind-Value="Model.CivilStateId" For="(() => Model.CivilStateId)" Clearable>
+                        <MudSelect T="int?" Label="@PersonsResource.CivilState" @bind-Value="Model.CivilStateId" For="(() => Model.CivilStateId)" Clearable Required>
                             @foreach (var civilState in CivilStates)
                             {
                                 <MudSelectItem T="int?" Value="civilState.Id">@civilState.Name.LocalizedValue</MudSelectItem>
