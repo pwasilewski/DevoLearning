@@ -24,6 +24,9 @@ https://github.com/pwasilewski/DevoLearning/blob/8d69fff859e64eeb70e67392bd9fec1
 **File: _Imports.razor — Added PageIntro namespace**  
 https://github.com/pwasilewski/DevoLearning/blob/8d69fff859e64eeb70e67392bd9fec186ccf799c/solutions/02_PageIntro/01__Imports.razor#L14
 
+You can now remove the `@using` from `Index.razor`
+https://github.com/pwasilewski/DevoLearning/blob/171bcb9eecb48cc147f2c4dca203498dbabee6d8/solutions/02_PageIntro/Features/Home/Pages/02_Index.razor#L1-L12
+
 ### Step 4 – Create the DateTimeExtensions helper
 👉 Centralizes formatting logic and ensures a consistent representation across the app.
 
