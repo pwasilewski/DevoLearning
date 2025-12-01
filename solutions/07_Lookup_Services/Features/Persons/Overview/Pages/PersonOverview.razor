@@ -5,39 +5,39 @@
 @attribute [Route(Routing.Persons.Overview)]
 
 <PageIntro Title="@PersonsResource.PersonOverview_Title">
-	<MudGrid>
-		<MudItem xs="12" xl="8">
-			<MudText>@PersonsResource.PersonOverview_Description</MudText>
-		</MudItem>
-	</MudGrid>
+    <MudGrid>
+        <MudItem xs="12" xl="8">
+            <MudText>@PersonsResource.PersonOverview_Description</MudText>
+        </MudItem>
+    </MudGrid>
 
-	@if (ViewModel.Query == null || ViewModel.PaginatedResult == null)
-	{
-		// Nothing to show
-	}
-	else
-	{
-		<MudDataGrid T="PersonOverviewModel"
-					 SortMode="SortMode.None"
-					 ServerData="ServerReload"
-					 RowClick="NavigateToDetails"
-					 Hover>
-			<Columns>
-				<PropertyColumn Property="x => x.LastName" Title="@PersonsResource.Name">
-					<CellTemplate>
-						@($"{context.Item.LastName} {context.Item.FirstName}")
-					</CellTemplate>
-				</PropertyColumn>
-				<PropertyColumn Property="x => x.BirthDate" Title="@PersonsResource.BirthDate">
-					<CellTemplate>
-						@context.Item.BirthDate.ToShortDisplayFormat()
-					</CellTemplate>
-				</PropertyColumn>
-				<PropertyColumn Property="x => x.Email" Title="@PersonsResource.Email" />
-			</Columns>
-			<PagerContent>
-				<MudDataGridPager />
-			</PagerContent>
-		</MudDataGrid>
-	}
+    @if (ViewModel.Query == null || ViewModel.PaginatedResult == null)
+    {
+        // Nothing to show
+    }
+    else
+    {
+        <MudDataGrid T="PersonOverviewModel"
+                     SortMode="SortMode.None"
+                     ServerData="ServerReload"
+                     RowClick="NavigateToDetails"
+                     Hover>
+            <Columns>
+                <PropertyColumn Property="x => x.LastName" Title="@PersonsResource.Name">
+                    <CellTemplate>
+                        @($"{context.Item.LastName} {context.Item.FirstName}")
+                    </CellTemplate>
+                </PropertyColumn>
+                <PropertyColumn Property="x => x.BirthDate" Title="@PersonsResource.BirthDate">
+                    <CellTemplate>
+                        @context.Item.BirthDate.ToShortDisplayFormat()
+                    </CellTemplate>
+                </PropertyColumn>
+                <PropertyColumn Property="x => x.Email" Title="@PersonsResource.Email" />
+            </Columns>
+            <PagerContent>
+                <MudDataGridPager />
+            </PagerContent>
+        </MudDataGrid>
+    }
 </PageIntro>
