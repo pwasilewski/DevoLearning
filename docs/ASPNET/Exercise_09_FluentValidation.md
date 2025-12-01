@@ -112,7 +112,7 @@ Create `PersonCreateForm.razor` that implements it similar to this pseudocode:
 
 💡 This connects the form with FluentValidation.
 
-#### Step 4 — Add the `For` attribute on each input
+#### Step 4 — Add the `Required` attribute on required input
 For every field that is marked as Required in your FluentValidation rules, ensure the corresponding MudBlazor input has the `Required="true"` or simply `Required` attribute.
 ```
 <MudTextField Label="First name" @bind-Value="Model.FirstName" Required />
