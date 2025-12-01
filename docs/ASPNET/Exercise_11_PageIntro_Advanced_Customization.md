@@ -100,7 +100,8 @@ In Features/Persons/Overview/Pages/PersonOverview.razor, update <PageIntro> so t
 - a ChildContent block (required whenever TitleTemplate is used)
 
 🖼️ Example layout (expected result):  
-A custom title area containing a heading and a “Create Person” button, visually aligned per the design system.
+<img width="1339" height="841" alt="image" src="https://github.com/user-attachments/assets/21c0d406-f4c5-4929-b624-08634fe43a5b" />
+
 
 #### Step 3 — Add navigation logic
 
