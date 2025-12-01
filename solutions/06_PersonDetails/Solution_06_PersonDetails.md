@@ -56,13 +56,13 @@ https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4a
 👉 Added a route constant with an `{id:int}` parameter.
 
 **File:** Routing.cs (Persons.Details)  
-[GITHUB-LINK-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/70a606c62a0209af35594e09aa76f07988152855/solutions/06_PersonDetails/Shared/Routing.cs#L13
 
 ### Step 7 – Add localization keys  
 👉 Labels for all displayed fields were added.
 
 **Files:** PersonsResource.resx (and variants)  
-[GITHUB-LINK-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/tree/main/solutions/06_PersonDetails/Resources/Features/Persons
 
 ### Step 8 – Implement the PersonDetails page  
 👉 Displays localized labels, formatted values, and lookup-based fields.
@@ -80,7 +80,8 @@ https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4a
 👉 Overview now navigates to the details page when selecting a person.
 
 **File:** PersonOverview.razor  
-[GITHUB-LINK-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/70a606c62a0209af35594e09aa76f07988152855/solutions/06_PersonDetails/Features/Persons/Overview/Pages/PersonOverview.razor#L20-L24
 
 **File:** PersonOverview.razor.cs  
-[GITHUB-LINK-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/70a606c62a0209af35594e09aa76f07988152855/solutions/06_PersonDetails/Features/Persons/Overview/Pages/PersonOverview.razor.cs#L24-L28
+https://github.com/pwasilewski/DevoLearning/blob/70a606c62a0209af35594e09aa76f07988152855/solutions/06_PersonDetails/Features/Persons/Overview/Pages/PersonOverview.razor.cs#L50-L53
