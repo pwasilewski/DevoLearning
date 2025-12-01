@@ -50,10 +50,23 @@ https://github.com/pwasilewski/DevoLearning/blob/98e11ab828762fe67ef5f26cbd3e607
 👉 The ViewModel initializes the feature, loads person data, and exposes paginated results to the page.
 
 **Files:**  
-- IPersonOverviewViewModel.cs  
-https://github.com/pwasilewski/DevoLearning/blob/98e11ab828762fe67ef5f26cbd3e60781a70cbcb/solutions/04_PersonOverview/Features/Persons/Overview/ViewModels/IPersonOverviewViewModel.cs#L7-L27
-- PersonOverviewViewModel.cs  
-https://github.com/pwasilewski/DevoLearning/blob/98e11ab828762fe67ef5f26cbd3e60781a70cbcb/solutions/04_PersonOverview/Features/Persons/Overview/ViewModels/PersonOverviewViewModel.cs#L9-L66
+- `IPersonOverviewViewModel.cs`  
+  https://github.com/pwasilewski/DevoLearning/blob/98e11ab828762fe67ef5f26cbd3e60781a70cbcb/solutions/04_PersonOverview/Features/Persons/Overview/ViewModels/IPersonOverviewViewModel.cs#L7-L27  
+- `PersonOverviewViewModel.cs`  
+  https://github.com/pwasilewski/DevoLearning/blob/98e11ab828762fe67ef5f26cbd3e60781a70cbcb/solutions/04_PersonOverview/Features/Persons/Overview/ViewModels/PersonOverviewViewModel.cs#L9-L66  
+
+**Additional variants:**  
+You can implement the ViewModel using either classic constructor injection or the more concise primary constructor syntax.
+
+
+💡 **Hint:**  
+Classic constructors and C# primary constructors behave similarly but are not fully identical.  
+Primary constructors provide a more compact syntax, but differ in parameter scoping, initialization order, and how attributes apply.  
+From this exercise onward, the **primary constructor pattern** will be the recommended and default approach.
+
+📘 **Further reading:**  
+*Primary Constructors in .NET — What You Need to Know*  
+https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/tutorials/primary-constructors
 
 ### Step 6 – Add localization for the overview page
 👉 You added the necessary resource keys (title, column names, description) for all supported languages.
