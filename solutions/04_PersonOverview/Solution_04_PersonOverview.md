@@ -65,7 +65,7 @@ https://github.com/pwasilewski/DevoLearning/tree/main/solutions/04_PersonOvervie
 👉 The Razor page renders the PageIntro header, localized text, and a MudDataGrid with server-side paging.
 
 **File:** PersonOverview.razor  
-https://github.com/pwasilewski/DevoLearning/blob/98e11ab828762fe67ef5f26cbd3e60781a70cbcb/solutions/04_PersonOverview/Features/Persons/Overview/Pages/PersonOverview.razor#L1-L40
+https://github.com/pwasilewski/DevoLearning/blob/d02b40c3c5d20efa031f309ed0a5d7a2f72a8387/solutions/04_PersonOverview/Features/Persons/Overview/Pages/PersonOverview.razor#L1-L40
 
 ### Step 8 – Add the code-behind interaction with the grid
 👉 The .razor.cs file connects MudDataGrid’s paging events to the ViewModel.
