@@ -26,7 +26,7 @@
                         <MudListItem>
                             <MudText Class="list-term">@PersonsResource.Gender</MudText>
                             @{
-                                var genderRecord = ViewModel.Genders.FirstOrDefault(_ => _.Id == ViewModel.Person.Gender);
+                                var genderRecord = ViewModel.Genders.FirstOrDefault(_ => _.Id == ViewModel.Person.GenderId);
                                 var gender = genderRecord?.Name?.LocalizedValue ?? "-";
                             }
                             <MudText Class="list-definition">@gender</MudText>
@@ -35,7 +35,7 @@
                         <MudListItem>
                             <MudText Class="list-term">@PersonsResource.CivilState</MudText>
                             @{
-                                var civilStateRecord = ViewModel.CivilStates.FirstOrDefault(_ => _.Id == ViewModel.Person.CivilState);
+                                var civilStateRecord = ViewModel.CivilStates.FirstOrDefault(_ => _.Id == ViewModel.Person.CivilStateId);
                                 var civilState = civilStateRecord?.Name?.LocalizedValue ?? "-";
                             }
                             <MudText Class="list-definition">@civilState</MudText>
