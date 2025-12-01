@@ -1,36 +1,40 @@
-# ✅ Solution — Exercise 02 — Reusable PageIntro Component & Shared Date Logic
+# ✅ Solution — Exercise 02 — PageIntro Component & Shared Date Logic
 
 ## 🧩 Overview
-You’ve refactored the homepage to use a reusable **`PageIntro`** component, introducing a consistent pattern for displaying page titles and descriptions. This component supports customization via parameters and integrates a **`DateTimeExtensions`** helper for cleaner and localized date formatting. The app now uses this standardized structure to improve readability, maintainability, and scalability.  
-
----
+Your application now uses a reusable **PageIntro** component for consistent page headers, and the date formatting logic has been centralized into a shared **DateTimeExtensions** class.  
+The homepage is cleaner, more maintainable, and aligned with future feature structure.
 
 ## 🧱 Implementation
 
-### Step 1 – Create the **`PageIntro`** component
-In **`Nihdi.DevoLearning.Presentation/Components/PageIntro.razor`**, create a new Razor component implementing the Design System’s page intro layout.
+### Step 1 – Create the PageIntro component
+👉 You introduced a reusable component that renders the title and optional description using the design system layout.
 
+**File: PageIntro.razor — Initial component implementation**  
 https://github.com/pwasilewski/DevoLearning/blob/bc8f37cb5d0a514b2546284ab5b4bcc4f83ce0e5/solutions/02_PageIntro/Components/PageIntro.razor#L1-L19
 
-### Step 2 – Refactor the Homepage
-Update **`Index.razor`** to use the new **`PageIntro`** component.
+### Step 2 – Update the homepage to use PageIntro
+👉 You replaced the ad-hoc layout with the new reusable component.
 
+**File: Index.razor — First refactor using PageIntro**  
 https://github.com/pwasilewski/DevoLearning/blob/bc8f37cb5d0a514b2546284ab5b4bcc4f83ce0e5/solutions/02_PageIntro/Features/Home/Pages/01_Index.razor#L1-L10
 
-### Step 3 – Update _Imports.razor and adapt the Homepage
-Import the component for global availability.
+### Step 3 – Import the component globally
+👉 You added a global `@using` in `_Imports.razor` so PageIntro is available project-wide.
 
+**File: _Imports.razor — Added PageIntro namespace**  
 https://github.com/pwasilewski/DevoLearning/blob/bc8f37cb5d0a514b2546284ab5b4bcc4f83ce0e5/solutions/02_PageIntro/01__Imports.razor#L14
 
-https://github.com/pwasilewski/DevoLearning/blob/bc8f37cb5d0a514b2546284ab5b4bcc4f83ce0e5/solutions/02_PageIntro/Features/Home/Pages/02_Index.razor#L1-L8
+### Step 4 – Create the DateTimeExtensions helper
+👉 Centralizes formatting logic and ensures a consistent representation across the app.
 
-### Step 4 – Add a **`DateTimeExtensions`** helper
-Create a static class in **`Nihdi.DevoLearning.Presentation/Shared/Extensions/DateTimeExtensions.cs`** to centralize date formatting logic.
-
+**File: DateTimeExtensions.cs — Shared date formatting**  
 https://github.com/pwasilewski/DevoLearning/blob/bc8f37cb5d0a514b2546284ab5b4bcc4f83ce0e5/solutions/02_PageIntro/Extensions/DateTimeExtensions.cs#L1-L20
 
-### Step 5 – Update _Imports.razor and adapt the Homepage
+### Step 5 – Update imports and finalize homepage formatting
+👉 You applied the new extension method and removed inline formatting logic.
 
+**File: _Imports.razor — Added extensions import**  
 https://github.com/pwasilewski/DevoLearning/blob/bc8f37cb5d0a514b2546284ab5b4bcc4f83ce0e5/solutions/02_PageIntro/02__Imports.razor#L15
 
+**File: Index.razor — Final homepage version**  
 https://github.com/pwasilewski/DevoLearning/blob/bc8f37cb5d0a514b2546284ab5b4bcc4f83ce0e5/solutions/02_PageIntro/Features/Home/Pages/03_Index.razor#L1-L8
