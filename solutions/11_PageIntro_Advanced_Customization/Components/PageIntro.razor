@@ -1,0 +1,39 @@
+﻿@if (!string.IsNullOrWhiteSpace(BacklinkLabel))
+{
+    <MudLink Href="@BacklinkHref">
+        <MudIcon Icon="icon-arrow-left"></MudIcon>
+        <MudText>@BacklinkLabel</MudText>
+    </MudLink>
+}
+
+<div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between gap-2 my-3">
+    @if (TitleTemplate != null)
+    {
+        @TitleTemplate
+    }
+    else
+    {
+        <div class="d-flex align-items-center gap-2">
+            <MudText Class="m-0" Typo="Typo.h1" Color="Color.Primary">@Title</MudText>
+        </div>
+    }
+</div>
+
+@ChildContent
+
+@code {
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public RenderFragment TitleTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string BacklinkLabel { get; set; }
+
+    [Parameter]
+    public string BacklinkHref { get; set; }
+}
