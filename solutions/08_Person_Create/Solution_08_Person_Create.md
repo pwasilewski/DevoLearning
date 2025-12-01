@@ -50,7 +50,7 @@ https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4a
 👉 Defines the path for the create page using the routing constants.
 
 **File:** Routing.cs  
-https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/08_Person_Create/Shared/Routing.cs#L14
+https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/08_Person_Create/Shared/Routing.cs#L13
 
 ### Step 6 – Add localization keys  
 👉 Labels, titles, messages, and button text were added to the Persons resource files.
