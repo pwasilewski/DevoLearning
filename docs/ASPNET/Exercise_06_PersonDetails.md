@@ -192,7 +192,7 @@ Create `PersonDetails.razor` that implements it similar to this pseudocode:
 ```
 
 🖼️ Example layout (expected result):  
-<img width="1331" height="840" alt="image" src="https://github.com/user-attachments/assets/f4f5a94c-2658-4a9c-b7b4-6a7f8e3b9e64" />
+<img width="1315" height="841" alt="image" src="https://github.com/user-attachments/assets/fd719c2b-dcc2-4aa2-a062-a7bb1bdc7806" />
 
 ### ⚙️ Section 8 — Connect Overview → Details Navigation
 
