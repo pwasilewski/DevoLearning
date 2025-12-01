@@ -32,7 +32,7 @@ https://github.com/pwasilewski/DevoLearning/tree/main/solutions/06_PersonDetails
 👉 Represents all fields shown on the details page.
 
 **File:** PersonDetailsModel.cs  
-https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/06_PersonDetails/Features/Persons/Details/Models/PersonDetailsModel.cs#L3-L69
+https://github.com/pwasilewski/DevoLearning/blob/00b6cdefc3674d3e0d337f297ab5045bb513daa0/solutions/06_PersonDetails/Features/Persons/Details/Models/PersonDetailsModel.cs#L3-L69
 
 ### Step 4 – Implement the ServiceClient  
 👉 Returns a single person entry based on the provided ID.
@@ -41,7 +41,7 @@ https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4a
 - IPersonDetailsServiceClient.cs  
 https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/06_PersonDetails/Features/Persons/Details/ServiceClients/IPersonDetailsServiceClient.cs#L1-L9
 - PersonDetailsServiceClient.cs  
-https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/06_PersonDetails/Features/Persons/Details/ServiceClients/PersonDetailsServiceClient.cs#L7-L31
+https://github.com/pwasilewski/DevoLearning/blob/00b6cdefc3674d3e0d337f297ab5045bb513daa0/solutions/06_PersonDetails/Features/Persons/Details/ServiceClients/PersonDetailsServiceClient.cs#L7-L31
 
 ### Step 5 – Implement the ViewModel  
 👉 Loads the person record and exposes loading/error state.
@@ -68,7 +68,7 @@ https://github.com/pwasilewski/DevoLearning/tree/main/solutions/06_PersonDetails
 👉 Displays localized labels, formatted values, and lookup-based fields.
 
 **File:** PersonDetails.razor  
-https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/06_PersonDetails/Features/Persons/Details/Pages/PersonDetails.razor#L4-L89
+https://github.com/pwasilewski/DevoLearning/blob/00b6cdefc3674d3e0d337f297ab5045bb513daa0/solutions/06_PersonDetails/Features/Persons/Details/Pages/PersonDetails.razor#L4-L89
 
 ### Step 9 – Add page code-behind logic  
 👉 Reads the route parameter and calls the ViewModel to load the person.
