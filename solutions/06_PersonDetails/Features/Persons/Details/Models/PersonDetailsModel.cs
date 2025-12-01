@@ -17,12 +17,12 @@
             get; set;
         }
 
-        public int Gender
+        public int GenderId
         {
             get; set;
         }
 
-        public int CivilState
+        public int CivilStateId
         {
             get; set;
         }

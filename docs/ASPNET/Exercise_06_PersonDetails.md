@@ -51,8 +51,8 @@ In the `Features/Persons/Details/Models` folder, create `PersonDetailsModel.cs`.
 | Id           | int       |
 | LastName     | string    |
 | FirstName    | string    |
-| Gender       | int       |
-| CivilState   | int       |
+| GenderId     | int       |
+| CivilStateId | int       |
 | BirthDate    | DateTime? |
 | DeceasedDate | DateTime? |
 | Email        | string    |
@@ -86,8 +86,8 @@ private readonly PersonDetailsModel _mock =
         FirstName = "Alice",
         BirthDate = new DateTime(1992, 4, 10),
         DeceasedDate = null,
-        Gender = 2,
-        CivilState = 1,
+        GenderId = 2,
+        CivilStateId = 1,
         Email = "alice.vermeer@example.com",
         Mobile = "+32 475 11 22 33",
     };

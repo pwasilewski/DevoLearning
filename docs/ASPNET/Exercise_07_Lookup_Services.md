@@ -69,9 +69,9 @@ In the same folder, create `GenderLookupService.cs` that implements it similar t
 ```
 private static readonly IReadOnlyList<GenderModel> _genders =
 [
-    new() { Id = 0, Name = new LocalizedStringModel { ValueFr = "Masculin", ValueNl = "Mannelijk" } },
-    new() { Id = 1, Name = new LocalizedStringModel { ValueFr = "Féminin", ValueNl = "Vrouwelijk" } },
-    new() { Id = 2, Name = new LocalizedStringModel { ValueFr = "X", ValueNl = "X" } },
+    new() { Id = 1, Name = new LocalizedStringModel { ValueFr = "Masculin", ValueNl = "Mannelijk" } },
+    new() { Id = 2, Name = new LocalizedStringModel { ValueFr = "Féminin", ValueNl = "Vrouwelijk" } },
+    new() { Id = 3, Name = new LocalizedStringModel { ValueFr = "X", ValueNl = "X" } },
 ];
 
 GetAsync:
@@ -96,14 +96,14 @@ In the same folder, create `CivilStateLookupService.cs` that implements it simil
 ```
 private static readonly IReadOnlyList<CivilStateModel> _states =
 [
-    new() { Id = 0, Name = new() { ValueFr = "Célibataire", ValueNl = "Ongehuwd" } },
-    new() { Id = 1, Name = new() { ValueFr = "Marié", ValueNl = "Gehuwd" } },
-    new() { Id = 2, Name = new() { ValueFr = "Veuf/veuve", ValueNl = "Weduwnaar/weduwe" } },
-    new() { Id = 3, Name = new() { ValueFr = "Divorcé", ValueNl = "Gescheiden" } },
-    new() { Id = 4, Name = new() { ValueFr = "Séparé de corps et de biens", ValueNl = "Scheiding van tafel en bed en van goederen" } },
-    new() { Id = 5, Name = new() { ValueFr = "Dissolution du mariage sous une forme particulière", ValueNl = "Ontbinding van het huwelijk op een bijzondere wijze" } },
-    new() { Id = 6, Name = new() { ValueFr = "Partenariat", ValueNl = "Partnerschap" } },
-    new() { Id = 7, Name = new() { ValueFr = "Indéterminé", ValueNl = "Onbepaald" } },
+    new() { Id = 1, Name = new() { ValueFr = "Célibataire", ValueNl = "Ongehuwd" } },
+    new() { Id = 2, Name = new() { ValueFr = "Marié", ValueNl = "Gehuwd" } },
+    new() { Id = 3, Name = new() { ValueFr = "Veuf/veuve", ValueNl = "Weduwnaar/weduwe" } },
+    new() { Id = 4, Name = new() { ValueFr = "Divorcé", ValueNl = "Gescheiden" } },
+    new() { Id = 5, Name = new() { ValueFr = "Séparé de corps et de biens", ValueNl = "Scheiding van tafel en bed en van goederen" } },
+    new() { Id = 6, Name = new() { ValueFr = "Dissolution du mariage sous une forme particulière", ValueNl = "Ontbinding van het huwelijk op een bijzondere wijze" } },
+    new() { Id = 7, Name = new() { ValueFr = "Partenariat", ValueNl = "Partnerschap" } },
+    new() { Id = 8, Name = new() { ValueFr = "Indéterminé", ValueNl = "Onbepaald" } },
 ];
 
 GetAsync:
@@ -163,7 +163,7 @@ OnInitializedAsync:
 
 ```razor
 @{
-    var genderRecord = ViewModel.Genders.FirstOrDefault(_ => _.Id == ViewModel.Person.Gender);
+    var genderRecord = ViewModel.Genders.FirstOrDefault(_ => _.Id == ViewModel.Person.GenderId);
     var gender = genderRecord?.Name?.LocalizedValue ?? "-";
 }
 <MudText Class="list-definition">@gender</MudText>
@@ -171,7 +171,7 @@ OnInitializedAsync:
 
 ```razor
 @{
-    var civilStateRecord = ViewModel.CivilStates.FirstOrDefault(_ => _.Id == ViewModel.Person.CivilState);
+    var civilStateRecord = ViewModel.CivilStates.FirstOrDefault(_ => _.Id == ViewModel.Person.CivilStateId);
     var civilState = civilStateRecord?.Name?.LocalizedValue ?? "-";
 }
 <MudText Class="list-definition">@civilState</MudText>
