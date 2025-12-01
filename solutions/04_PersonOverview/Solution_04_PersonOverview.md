@@ -53,11 +53,11 @@ https://github.com/pwasilewski/DevoLearning/blob/98e11ab828762fe67ef5f26cbd3e607
 - `IPersonOverviewViewModel.cs`  
   https://github.com/pwasilewski/DevoLearning/blob/98e11ab828762fe67ef5f26cbd3e60781a70cbcb/solutions/04_PersonOverview/Features/Persons/Overview/ViewModels/IPersonOverviewViewModel.cs#L7-L27  
 - `PersonOverviewViewModel.cs`  
-  https://github.com/pwasilewski/DevoLearning/blob/98e11ab828762fe67ef5f26cbd3e60781a70cbcb/solutions/04_PersonOverview/Features/Persons/Overview/ViewModels/PersonOverviewViewModel.cs#L9-L66  
+  https://github.com/pwasilewski/DevoLearning/blob/4b0115eec7df52b60a42f954ae31a7cafdd656cd/solutions/04_PersonOverview/Features/Persons/Overview/ViewModels/01_PersonOverviewViewModel.cs#L9-L66 
 
 **Additional variants:**  
 You can implement the ViewModel using either classic constructor injection or the more concise primary constructor syntax.
-
+https://github.com/pwasilewski/DevoLearning/blob/4b0115eec7df52b60a42f954ae31a7cafdd656cd/solutions/04_PersonOverview/Features/Persons/Overview/ViewModels/02_PersonOverviewViewModel.cs#L9
 
 💡 **Hint:**  
 Classic constructors and C# primary constructors behave similarly but are not fully identical.  
