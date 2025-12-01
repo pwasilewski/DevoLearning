@@ -28,7 +28,7 @@ https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4a
 - IGenderLookupService.cs  
 https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/07_Lookup_Services/Services/Genders/IGenderLookupService.cs#L1-L9
 - GenderLookupService.cs  
-https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/07_Lookup_Services/Services/Genders/GenderLookupService.cs#L5-L18
+https://github.com/pwasilewski/DevoLearning/blob/2ae9af41251b2e841e43a908fa0cc5978adc4b22/solutions/07_Lookup_Services/Services/Genders/GenderLookupService.cs#L5-L18
 
 ### Step 4 – Implement the Civil State lookup service  
 👉 Provides localized civil state values for display in UI.
@@ -37,7 +37,7 @@ https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4a
 - ICivilStateLookupService.cs  
 https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/07_Lookup_Services/Services/CivilStates/ICivilStateLookupService.cs#L1-L9
 - CivilStateLookupService.cs  
-https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/07_Lookup_Services/Services/CivilStates/CivilStateLookupService.cs#L7-L25
+https://github.com/pwasilewski/DevoLearning/blob/2ae9af41251b2e841e43a908fa0cc5978adc4b22/solutions/07_Lookup_Services/Services/CivilStates/CivilStateLookupService.cs#L7-L25
 
 ### Step 5 – Register lookup services in DI  
 👉 Both lookup services were added to dependency injection.
@@ -64,5 +64,5 @@ https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4a
 👉 Displays the localized lookup values in place of numeric IDs.
 
 **File:** PersonDetails.razor  
-https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/07_Lookup_Services/Features/Persons/Details/Pages/PersonDetails.razor#L26-L33
-https://github.com/pwasilewski/DevoLearning/blob/b8ac35f8c7088d2c41d81c404cd3a4ae5927e068/solutions/07_Lookup_Services/Features/Persons/Details/Pages/PersonDetails.razor#L35-L42
+https://github.com/pwasilewski/DevoLearning/blob/2ae9af41251b2e841e43a908fa0cc5978adc4b22/solutions/07_Lookup_Services/Features/Persons/Details/Pages/PersonDetails.razor#L26-L33
+https://github.com/pwasilewski/DevoLearning/blob/2ae9af41251b2e841e43a908fa0cc5978adc4b22/solutions/07_Lookup_Services/Features/Persons/Details/Pages/PersonDetails.razor#L35-L42
