@@ -14,9 +14,9 @@ In a real application, the UI does not own or mock domain data; it must retrieve
 You will also run the backend and explore its contract through NSwag, which has already been configured in the project.
 
 ## 📚 Learn / Review Before Starting
-[ASP.NET Core Controllers – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/actions)
-[REST API Design Tutorial – restfulapi.net](https://restfulapi.net/rest-api-design-tutorial-with-example/)
-[NSwag Documentation – NSwag GitHub Wiki](https://github.com/RicoSuter/NSwag/wiki)
+- [ASP.NET Core Controllers – Microsoft Docs](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/actions)
+- [REST API Design Tutorial – restfulapi.net](https://restfulapi.net/rest-api-design-tutorial-with-example/)
+- [NSwag Documentation – NSwag GitHub Wiki](https://github.com/RicoSuter/NSwag/wiki)
 
 ------------------------------------------------
 
@@ -139,5 +139,5 @@ Verify the response structure matches the `PersonDetailsDto`.
 ------------------------------------------------
 
 ## 🧠 Next Steps
-In the next exercise, you will continue building the PersonController by adding the **Person Overview** endpoint and preparing additional data for integration.
+In the next exercise, you will continue building the PersonController by adding the **Person Overview** endpoint and preparing additional data for integration.    
 👉 Continue with *Overview endpoint and lookup services.*
