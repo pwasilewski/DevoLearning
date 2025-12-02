@@ -130,4 +130,4 @@ In the next exercise, you will begin working on the REST API side:
 - exposing endpoints for Person data  
 - learning how to integrate NSwag to generate strongly-typed C# API clients  
 
-👉 Continue with Exercise 12 — Building Your First REST API Controller & Introducing NSwag.
+👉 Continue with [Exercise 12 — First API Controller (PersonController)](../REST_API/Exercise_12_First_API_Controller.md).
