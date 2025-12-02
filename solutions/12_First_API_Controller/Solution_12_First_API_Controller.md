@@ -12,7 +12,7 @@ Add PersonDetailsDto.cs to the Nihdi.DevoLearning.Contracts/Persons/Details fold
 This contract defines the structure of a person details response.
 
 **File:** PersonDetailsDto.cs  
-[GITHUB-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/094af2df4d325ae6c7e00d3bdcacc14e5008c72e/solutions/12_First_API_Controller/Nihdi.DevoLearning.Contracts/Persons/Details/PersonDetailsDto.cs#L3-L69
 
 ---
 
@@ -21,7 +21,7 @@ Add PersonController.cs in the Nihdi.DevoLearning.Host.Bff/Controllers folder.
 The controller inherits from ControllerBase and is decorated with the API controller and route attributes.
 
 **File:** PersonController.cs  
-[GITHUB-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/094af2df4d325ae6c7e00d3bdcacc14e5008c72e/solutions/12_First_API_Controller/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L6-L8
 
 ---
 
@@ -30,4 +30,4 @@ Inside PersonController, add a method named GetPersonDetailsById.
 The method receives the id from the route, constructs a mocked PersonDetailsDto using this id, and returns it as an HTTP 200 response.
 
 **File:** PersonController.cs  
-[GITHUB-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/094af2df4d325ae6c7e00d3bdcacc14e5008c72e/solutions/12_First_API_Controller/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L10-L31
