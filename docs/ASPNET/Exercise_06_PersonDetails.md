@@ -90,6 +90,10 @@ private readonly PersonDetailsModel _mock =
         CivilStateId = 1,
         Email = "alice.vermeer@example.com",
         Mobile = "+32 475 11 22 33",
+        CreatedOn = new DateTime(2020, 1, 15, 10, 30, 0),
+        CreatedBy = "Migration",
+        ModifiedOn = new DateTime(2020, 1, 15, 10, 30, 0),
+        ModifiedBy = "Migration",
     };
 
 GetPersonByIdAsync(id):
