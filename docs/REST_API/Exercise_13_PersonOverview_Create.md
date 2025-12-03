@@ -87,7 +87,7 @@ Reuse the same mocked overview list you previously defined in your Presentation 
 Create the list similar to this pseudocode structure:
 
 ```csharp
-private readonly List<PersonOverviewModel> _mockData =
+private readonly List<PersonOverviewDto> _mockData =
 [
     new() { Id = 1, FirstName = "Alice", LastName = "Vermeer", BirthDate = new DateTime(1992, 4, 10), Email = "alice.vermeer@example.com" },
     new() { Id = 2, FirstName = "Benoît", LastName = "Durand", BirthDate = new DateTime(1988, 6, 21), Email = "benoit.durand@example.com" },
@@ -120,7 +120,7 @@ GetPersons(query):
     - Apply filtering (none for now)
     - Set total counts (filtered/unfiltered)
     - Slice with Skip(PageIndex * PageSize).Take(PageSize)
-    - Return PaginatedResult<T>
+    - Return PaginatedResultDto<T>
 ```
 
 Wrap the list into a `PaginatedResultDto<PersonOverviewDto>` and return it.
