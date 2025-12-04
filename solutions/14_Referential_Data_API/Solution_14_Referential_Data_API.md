@@ -12,7 +12,7 @@ A LocalizedStringDto was created in the Shared folder to hold French and Dutch l
 The Presentation-only computed property was intentionally excluded.
 
 **File:** LocalizedStringDto.cs  
-[GITHUB-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/386c38b84c0f7ec207b68c61ae0972167a9235c6/solutions/14_Referential_Data_API/Nihdi.DevoLearning.Contracts/Shared/LocalizedStringDto.cs#L3-L14
 
 ---
 
@@ -20,7 +20,7 @@ The Presentation-only computed property was intentionally excluded.
 A GenderDto was added in the Referential folder to represent a gender entry with identifiers and localized labels.
 
 **File:** GenderDto.cs  
-[GITHUB-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/386c38b84c0f7ec207b68c61ae0972167a9235c6/solutions/14_Referential_Data_API/Nihdi.DevoLearning.Contracts/Referential/GenderDto.cs#L5-L16
 
 ---
 
@@ -28,7 +28,7 @@ A GenderDto was added in the Referential folder to represent a gender entry with
 A CivilStateDto was added in the Referential folder to represent a civil-state entry with identifiers and localized labels.
 
 **File:** CivilStateDto.cs  
-[GITHUB-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/386c38b84c0f7ec207b68c61ae0972167a9235c6/solutions/14_Referential_Data_API/Nihdi.DevoLearning.Contracts/Referential/CivilStateDto.cs#L5-L16
 
 ---
 
@@ -36,7 +36,7 @@ A CivilStateDto was added in the Referential folder to represent a civil-state e
 The ReferentialController now exposes a GET endpoint returning mocked gender values through the backend.
 
 **File:** ReferentialController.cs  
-[GITHUB-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/386c38b84c0f7ec207b68c61ae0972167a9235c6/solutions/14_Referential_Data_API/Nihdi.DevoLearning.Host.Bff/Controllers/ReferentialController.cs#L29-L33
 
 ---
 
@@ -44,4 +44,4 @@ The ReferentialController now exposes a GET endpoint returning mocked gender val
 The controller also exposes a GET endpoint returning mocked civil-state values.
 
 **File:** ReferentialController.cs  
-[GITHUB-PLACEHOLDER]
+https://github.com/pwasilewski/DevoLearning/blob/386c38b84c0f7ec207b68c61ae0972167a9235c6/solutions/14_Referential_Data_API/Nihdi.DevoLearning.Host.Bff/Controllers/ReferentialController.cs#L35-L39
