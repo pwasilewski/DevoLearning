@@ -42,7 +42,7 @@
         ];
 
         [HttpGet("{id}")]
-        public IActionResult GetPersonDetailsById(int id)
+        public ActionResult<PersonDetailsDto> GetPersonDetailsById(int id)
         {
             var result = new PersonDetailsDto()
             {
@@ -65,7 +65,7 @@
         }
 
         [HttpGet]
-        public IActionResult GetPersons([FromQuery] PersonOverviewQueryDto query)
+        public ActionResult<PaginatedResultDto<PersonOverviewDto>> GetPersons([FromQuery] PersonOverviewQueryDto query)
         {
             var pagedItems = _mockData
                 .Skip(query.PageIndex * query.PageSize)
@@ -83,7 +83,7 @@
         }
 
         [HttpPost]
-        public IActionResult CreatePerson([FromBody] PersonCreateDto dto)
+        public ActionResult<int> CreatePerson([FromBody] PersonCreateDto dto)
         {
             var id = new Random().Next(1000);
             return Ok(id);

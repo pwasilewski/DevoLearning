@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Nihdi.DevoLearning.Contracts.Referential;
+    using System.Collections.Generic;
 
     [ApiController]
     [Route("api/[controller]")]
@@ -27,13 +28,13 @@
         ];
 
         [HttpGet("genders")]
-        public IActionResult GetGenders()
+        public ActionResult<List<GenderDto>> GetGenders()
         {
             return Ok(_genders);
         }
 
         [HttpGet("civilstates")]
-        public IActionResult GetCivilStates()
+        public ActionResult<List<CivilStateDto>> GetCivilStates()
         {
             return Ok(_states);
         }

@@ -77,7 +77,7 @@ The method should:
 
 - use the `[HttpGet]` attribute  
 - accept a `PersonOverviewQueryDto` using `[FromQuery]`  
-- return a `PaginatedResultDto<PersonOverviewDto>`
+- return a `ActionResult<PaginatedResultDto<PersonOverviewDto>>`
 
 💡 **Hint:** REST conventions recommend passing pagination and filtering via **query parameters**, which is why the DTO is decorated with `[FromQuery]`.
 
@@ -137,7 +137,7 @@ The method should:
 
 - use the `[HttpPost]` attribute  
 - accept `PersonCreateDto` using `[FromBody]`  
-- return an integer Id inside an `IActionResult`
+- return an integer Id inside an `ActionResult<int>`
 
 💡 **Hint:** POST requests send their data inside the **request body**, which is why `[FromBody]` is used.
 
