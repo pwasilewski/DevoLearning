@@ -67,7 +67,7 @@ Add a GET endpoint returning all genders based on mocked in-memory values.
 
 The method should:
 - be annotated with `[HttpGet("genders")]`
-- return a list of `GenderDto`
+- return a `ActionResult<List<GenderDto>>`
 - use mocked values previously defined in the Presentation layer
 
 #### Step 3 — Add the civil states endpoint
@@ -75,7 +75,7 @@ Add a GET endpoint returning all civil states using mocked in-memory values.
 
 The method should:
 - be annotated with `[HttpGet("civilstates")]`
-- return a list of `CivilStateDto`
+- return a `ActionResult<List<CivilStateDto>>`
 - use mocked values previously defined in the Presentation layer
 
 ------------------------------------------------

@@ -2,13 +2,14 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Nihdi.DevoLearning.Contracts.Persons.Details;
+    using System;
 
     [ApiController]
     [Route("api/[controller]")]
     public class PersonController : ControllerBase
     {
         [HttpGet("{id}")]
-        public IActionResult GetPersonDetailsById(int id)
+        public ActionResult<PersonDetailsDto> GetPersonDetailsById(int id)
         {
             var result = new PersonDetailsDto()
             {

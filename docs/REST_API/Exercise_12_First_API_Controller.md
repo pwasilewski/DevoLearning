@@ -82,7 +82,7 @@ Create the GET endpoint with attribute and method signature:
 
 ```
 [HttpGet("{id}")]
-public IActionResult GetPersonDetailsById(int id)
+public ActionResult<PersonDetailsDto> GetPersonDetailsById(int id)
 ```
 
 #### Step 4 — Return mocked details data
