@@ -21,7 +21,7 @@ Add PersonController.cs in the Nihdi.DevoLearning.Host.Bff/Controllers folder.
 The controller inherits from ControllerBase and is decorated with the API controller and route attributes.
 
 **File:** PersonController.cs  
-https://github.com/pwasilewski/DevoLearning/blob/094af2df4d325ae6c7e00d3bdcacc14e5008c72e/solutions/12_First_API_Controller/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L6-L8
+https://github.com/pwasilewski/DevoLearning/blob/69de2efebc1415ecf2ae3eb4b77f74919eaafd4f/solutions/12_First_API_Controller/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L7-L9
 
 ---
 
@@ -30,4 +30,4 @@ Inside PersonController, add a method named GetPersonDetailsById.
 The method receives the id from the route, constructs a mocked PersonDetailsDto using this id, and returns it as an HTTP 200 response.
 
 **File:** PersonController.cs  
-https://github.com/pwasilewski/DevoLearning/blob/094af2df4d325ae6c7e00d3bdcacc14e5008c72e/solutions/12_First_API_Controller/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L10-L31
+https://github.com/pwasilewski/DevoLearning/blob/69de2efebc1415ecf2ae3eb4b77f74919eaafd4f/solutions/12_First_API_Controller/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L11-L32
