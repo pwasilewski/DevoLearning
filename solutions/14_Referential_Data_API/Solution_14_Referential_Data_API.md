@@ -36,7 +36,7 @@ https://github.com/pwasilewski/DevoLearning/blob/386c38b84c0f7ec207b68c61ae09721
 The ReferentialController now exposes a GET endpoint returning mocked gender values through the backend.
 
 **File:** ReferentialController.cs  
-https://github.com/pwasilewski/DevoLearning/blob/386c38b84c0f7ec207b68c61ae0972167a9235c6/solutions/14_Referential_Data_API/Nihdi.DevoLearning.Host.Bff/Controllers/ReferentialController.cs#L29-L33
+https://github.com/pwasilewski/DevoLearning/blob/6a36b7342f7d5102861ac9126363e17e61aa7b03/solutions/14_Referential_Data_API/Nihdi.DevoLearning.Host.Bff/Controllers/ReferentialController.cs#L30-L34
 
 ---
 
@@ -44,4 +44,4 @@ https://github.com/pwasilewski/DevoLearning/blob/386c38b84c0f7ec207b68c61ae09721
 The controller also exposes a GET endpoint returning mocked civil-state values.
 
 **File:** ReferentialController.cs  
-https://github.com/pwasilewski/DevoLearning/blob/386c38b84c0f7ec207b68c61ae0972167a9235c6/solutions/14_Referential_Data_API/Nihdi.DevoLearning.Host.Bff/Controllers/ReferentialController.cs#L35-L39
+https://github.com/pwasilewski/DevoLearning/blob/6a36b7342f7d5102861ac9126363e17e61aa7b03/solutions/14_Referential_Data_API/Nihdi.DevoLearning.Host.Bff/Controllers/ReferentialController.cs#L36-L40
