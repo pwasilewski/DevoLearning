@@ -49,7 +49,7 @@ Extend PersonController with a GET endpoint that receives a PersonOverviewQueryD
 The mocked list is reused from the Presentation layer, wrapped in a PaginatedResultDto.
 
 **File:** PersonController.cs  
-https://github.com/pwasilewski/DevoLearning/blob/a3df2c1894cb72f90ad3dde1ab37377416670d4d/solutions/13_PersonOverview_Create/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L67-L83
+https://github.com/pwasilewski/DevoLearning/blob/f1eacfdb1dcedc7a00a934903a60731e55a0edb9/solutions/13_PersonOverview_Create/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L67-L83
 
 ---
 
@@ -58,4 +58,4 @@ In PersonController, add a POST endpoint accepting PersonCreateDto from the requ
 A fixed or random identifier is generated and returned as the created person's Id.
 
 **File:** PersonController.cs  
-https://github.com/pwasilewski/DevoLearning/blob/a3df2c1894cb72f90ad3dde1ab37377416670d4d/solutions/13_PersonOverview_Create/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L85-L90
+https://github.com/pwasilewski/DevoLearning/blob/f1eacfdb1dcedc7a00a934903a60731e55a0edb9/solutions/13_PersonOverview_Create/Nihdi.DevoLearning.Host.Bff/Controllers/PersonController.cs#L85-L90
