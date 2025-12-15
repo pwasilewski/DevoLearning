@@ -24,7 +24,8 @@ This mirrors real-world professional practices: you move from page-level impleme
 ## ⚙️ Section 1 — Create the PageIntro Component
 
 ### Step 1 — Create the component  
-In the `Components` folder, create `PageIntro.razor`.  
+At the **root level**, create a folder named **`Components`**.  
+Inside, add a new Razor file named **`PageIntro.razor`**. 
 This component will represent a reusable page introduction block, containing a title and optional child content.
 
 ### Step 2 — Add component parameters  
