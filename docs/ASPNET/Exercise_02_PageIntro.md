@@ -23,12 +23,19 @@ This mirrors real-world professional practices: you move from page-level impleme
 
 ## ⚙️ Section 1 — Create the PageIntro Component
 
-### Step 1 — Create the component  
-At the **root level**, create a folder named `Components`.   
-Inside, add a new Razor file named `PageIntro.razor`.   
+### Step 1 — Create the folder structure  
+Create the following structure:
+
+```
+Nihdi.DevoLearning.Presentation/
+└── Components/
+```
+
+### Step 2 — Create the component  
+In the `Components` folder, create `PageIntro.razor`.   
 This component will represent a reusable page introduction block, containing a title and optional child content.
 
-### Step 2 — Add component parameters  
+### Step 3 — Add component parameters  
 Add two public parameters to support flexibility and reuse:
 
 ```csharp
@@ -41,11 +48,11 @@ public RenderFragment ChildContent { get; set; }
 
 💡 The `ChildContent` parameter allows embedding any markup or components between your `<PageIntro>` tags, making it adaptable to different page needs.
 
-### Step 3 — Define the layout  
+### Step 4 — Define the layout  
 Inside `PageIntro.razor`, use simple markup to display the title and the optional child content underneath.  
 Keep the structure minimal and consistent with your design system.
 
-### Step 4 — Use it on the homepage  
+### Step 5 — Use it on the homepage  
 Open `Features/Home/Pages/Index.razor` and replace your existing layout with the new `PageIntro` component.  
 It should receive a title (`"Hello World"`) and render a description showing today’s date.
 
@@ -54,7 +61,7 @@ It should receive a title (`"Hello World"`) and render a description showing tod
 
 💡 Don’t forget to add the component’s namespace import before using it.
 
-### Step 5 — Add namespace import  
+### Step 6 — Add namespace import  
 Open `_Imports.razor` and include:
 
 ```csharp
