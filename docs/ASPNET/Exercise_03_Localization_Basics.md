@@ -48,7 +48,7 @@ Add the following keys to all three resource files:
 |--------------|--------|---------|
 | Title | Welkom | Bienvenue |
 | Description | Vandaag is {0} | Aujourd’hui, nous sommes le {0} |
-| Encouragement | <b>Blijf leren en ontdek meer!</b> | <b>Continuez à apprendre et à explorer !</b> |
+| Encouragement | `<b>Blijf leren en ontdek meer!</b>` | `<b>Continuez à apprendre et à explorer !</b>` |
 
 💡 *The encouragement line includes `<b>` tags — you’ll later render it using `MarkupString` so the text appears bold instead of escaped.*
 
