@@ -199,7 +199,7 @@ This step introduces several Blazor concepts at once:
 - Calling async methods during initialization
 
 #### Step 1 — Add localization keys  
-In the `Resources/Features/Persons` folder, create `Persons.resx` with:
+In the `Resources/Features/Persons` folder, create `PersonsResources.resx` with:
 
 | Resource Key               | Dutch                                                                 | French                                                                 |
 |----------------------------|-----------------------------------------------------------------------|------------------------------------------------------------------------|
